@@ -10,12 +10,7 @@ const CardLeft = styled.div`
   border-radius: 25px 0 0 25px;
   background-color: #ce574f;
 `;
-const CardRight = styled.div`
-  width: 215px;
-  height: 125px;
-  border-radius: 0 25px 25px 0;
-  background-color: #fff;
-`;
+
 const Time = styled.div`
   color: #fff;
   
@@ -52,6 +47,54 @@ padding-bottom:10px;
 const MIN= styled.div``;
 
 
+const CardRight = styled.div`
+display:flex;
+flex-direction:column;
+  width: 195px;
+  height: 125px;
+  border-radius: 0 25px 25px 0;
+  background-color: #fff;
+  justify-content:center;
+  align-items:flex-start;
+  padding-left:20px;
+`;
+const MediName= styled.div`
+font-size: 16px;
+font-weight:700;
+color: #000;
+`;
+const Dosage= styled.div`
+font-size: 12px;
+padding-top:10px;
+/* display:inline-flex; */
+`;
+const ButtomCont= styled.div`
+font-size: 12px;
+display:inline-flex;
+align-items:center;
+justify-content:space-between;
+padding-top:10px;
+width:90%;
+`;
+const Timer= styled.div`
+font-size: 7px;
+/* padding-right:20px; */
+width:62px;
+height:15px;
+background-color:#E6E6E6;
+border-radius:50px;
+`;
+const Edit= styled.button`
+font-size: 12px;
+border:none;
+width:86px;
+height:28px;
+border-radius:10px;
+background-color:#E6E6E6;
+`;
+
+
+
 
 const Medicard = () => {
   return (
@@ -69,7 +112,14 @@ const Medicard = () => {
           </NormalFont>
         </Time>
       </CardLeft>
-      <CardRight></CardRight>
+      <CardRight>
+          <MediName>TestTestTestTest</MediName>
+          <Dosage>1/1</Dosage>
+          <ButtomCont>
+              <Timer>test</Timer>
+              <Edit>Edit</Edit>
+          </ButtomCont>
+      </CardRight>
     </Container>
   );
 };
