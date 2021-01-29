@@ -22,16 +22,11 @@ const Time = styled.div`
   justify-content: center;
 `;
 
-const Bold = styled.div`
-  font-weight: 700;
-  font-size: 18px;
-`;
-
+const TimeNum = styled.div``;
 const HourNum = styled.div``;
 const MinNum = styled.div``;
 
-const NormalFont = styled.div`
-  font-size: 10px;
+const TimeText = styled.div`
   padding-left: 5px;
 `;
 
@@ -60,21 +55,20 @@ const MediName = styled.div`
 `;
 
 const Dosage = styled.div`
-  font-size: 12px;
-  padding-top: 10px;
+  /* font-size: 12px; */
+  /* padding-top: 10px; */
 `;
 
 const ButtomCont = styled.div`
-  font-size: 12px;
+  /* font-size: 12px; */
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 20px;
+  padding-top: 7px;
   width: 90%;
 `;
 
 const Timer = styled.div`
-  font-size: 7px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -85,13 +79,14 @@ const Timer = styled.div`
 `;
 
 const Edit = styled.button`
-  font-size: 12px;
-  font-weight: 500px;
   border: none;
   width: 86px;
   height: 28px;
   border-radius: 10px;
   background-color: #e6e6e6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 `;
 
 const Icon = styled.img`
@@ -105,26 +100,30 @@ const Medicard = ({ hr, min, mediname, child, mom, timer }) => {
     <Container>
       <CardLeft>
         <Time>
-          <Bold>
+          <TimeNum>
+            <h3>
             <HourNum>{hr}</HourNum>
             <MinNum>{min}</MinNum>
-          </Bold>
+            </h3>
+          </TimeNum>
 
-          <NormalFont>
+          <TimeText>
+            <p>
             <HR>HR</HR>
             <MIN>MIN</MIN>
-          </NormalFont>
+            </p>
+          </TimeText>
         </Time>
       </CardLeft>
       <CardRight>
         <MediName>{mediname}</MediName>
-        <Dosage>{child}/{mom}</Dosage>
+        <Dosage><p>{child}/{mom}</p></Dosage>
         <ButtomCont>
           <Timer>
             <Icon src={alarm} />
-            {timer} AM
+           <h6>{timer} AM</h6>
           </Timer>
-          <Edit>Edit</Edit>
+          <Edit><p>Edit</p></Edit>
         </ButtomCont>
       </CardRight>
     </Container>
