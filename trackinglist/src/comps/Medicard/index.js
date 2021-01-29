@@ -10,7 +10,7 @@ const CardLeft = styled.div`
   width: 75px;
   height: 125px;
   border-radius: 25px 0 0 25px;
-  background-color: #ce574f;
+  background-color: ${props=>props.Medibgcolor ? props.Medibgcolor : "#ce574f"};
 `;
 
 const Time = styled.div`
@@ -54,10 +54,7 @@ const MediName = styled.div`
   color: #000;
 `;
 
-const Dosage = styled.div`
-  /* font-size: 12px; */
-  /* padding-top: 10px; */
-`;
+const Dosage = styled.div``;
 
 const ButtomCont = styled.div`
   /* font-size: 12px; */
@@ -95,10 +92,10 @@ const Icon = styled.img`
   padding-right: 5px;
 `;
 
-const Medicard = ({ hr, min, mediname, child, mom, timer }) => {
+const Medicard = ({ Medibgcolor, hr, min, mediname, child, mom, timer }) => {
   return (
     <Container>
-      <CardLeft>
+      <CardLeft bgcolor={Medibgcolor}>
         <Time>
           <TimeNum>
             <h3>
@@ -131,6 +128,7 @@ const Medicard = ({ hr, min, mediname, child, mom, timer }) => {
 };
 
 Medicard.defaultProps = {
+  MedicardColor:"#ce574f",
   hr: "00",
   min: "15",
   mediname: "Amlodipine Besylate",
