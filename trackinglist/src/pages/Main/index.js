@@ -9,8 +9,8 @@ import Inputs from 'comps/Inputs';
 
 const Main = () => {
 
-    const HandleFormComplete = async (medication, hour, minute, handleExpand) => {
-        console.log(medication, hour, minute);
+    const HandleFormComplete = async (medication, dosage, hour, minute, handleExpand) => {
+        console.log(medication, dosage, hour, minute);
         handleExpand();
     }
     const handleFormClose = (handleExpand) =>{

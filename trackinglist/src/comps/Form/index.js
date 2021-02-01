@@ -41,7 +41,7 @@ const WordCont = styled.div`
     height:40px;
     display:flex;
     align-items:flex-start;
-    margin-top:30px;
+    margin-top:20px;
 `;
 const FormInput = styled.input`
     width:100%;
@@ -76,6 +76,7 @@ const Form = ({buttonText, FormType, onFormComplete, onFormClose}) => {
 
     const [expand, setExpand] = useState(true);
     const [medication, setMedication] = useState("");
+    const [dosage, setDosage] = useState("");
     const [hour, setHour] = useState("");
     const [minute, setMinute] = useState("");
 
@@ -84,12 +85,16 @@ const Form = ({buttonText, FormType, onFormComplete, onFormClose}) => {
     }
 
     return<Container >
-                <Close onClick={handleExpand}><Icon src={arrow}></Icon></Close>
+                <Close onClick={handleExpand}><p>Add Medication</p><Icon src={arrow}/></Close>
             <Content expand={expand}>
                     <WordCont><h4>{FormType}</h4>  </WordCont>
                     <WordCont ><h4 style={{color: "grey"}}>Medication Name</h4></WordCont>
                     <InputCont><FormInput type='text' style={{fontSize: "16px"}} onChange={(e)=>{
                         setMedication(e.target.value);
+                    }}/></InputCont>
+                    <WordCont ><h4 style={{color: "grey"}}>Dosage</h4></WordCont>
+                    <InputCont><FormInput type='number' placeholder="mg"style={{fontSize: "16px"}} onChange={(e)=>{
+                        setDosage(e.target.value);
                     }}/></InputCont>
                     <div style={{display:"flex", flexDirection:"row", width:"100%", color:"grey"}}><WordCont><h4>Hour</h4><h4 style={{paddingLeft: "30px"}}>Minute</h4></WordCont></div>
                     <div style={{width: "100%", display: "flex", flexDirection:"row"}}>   
@@ -105,7 +110,7 @@ const Form = ({buttonText, FormType, onFormComplete, onFormClose}) => {
                         onFormClose(handleExpand)
                     }}><p>Cancel</p></FormButton>
                     <FormButton buttonColor={"#18A0FB"} onClick={()=>{
-                        onFormComplete(medication, hour, minute, handleExpand)
+                        onFormComplete(medication, dosage, hour, minute, handleExpand)
                     }}><p style={{color:"white"}}>{buttonText}</p> </FormButton>
                     </div>
             </Content>
