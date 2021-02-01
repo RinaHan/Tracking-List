@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { MdAlarm } from 'react-icons/md';
+import { MdCheck } from 'react-icons/md';
+
 const Container = styled.div`
     max-width: 100%;
     width: 325px;
@@ -29,16 +32,13 @@ const AlertMsg = styled.div`
 `;
 
 const AlertIcon = styled.div`
-    width: 56px;
-    height: 56px;
-    background-color: white;
     position: relative;
-    bottom: 10%;
+    bottom: 5%;
     left: 80%;
     border-radius: 50%;
 `;
 
-const Btn = styled.div`
+const BtnCont = styled.div`
     width: 100%;
     height: 83px;
     display: flex;
@@ -46,10 +46,20 @@ const Btn = styled.div`
     align-items: center;
 `;
 
-const DummyBtn = styled.div`
+const AlertBtn = styled.button`
     width: 248px;
     height: 47px;
     background-color: #e6e6e6;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h5 {
+        font-weight: bold;
+        margin-left: 31px;
+    }
 `;
 
 const Alert = () => {
@@ -57,10 +67,16 @@ const Alert = () => {
         <AlertMsgCont>
             <AlertMsg>
                 <h2>Time to take your medication!</h2>
-                <AlertIcon></AlertIcon> {/* icon goes here */}
+                <AlertIcon><MdAlarm size={56}/></AlertIcon> {/* icon goes here */}
             </AlertMsg>
         </AlertMsgCont>
-        <Btn><DummyBtn /></Btn> {/* btn comp goes here */}
+        <BtnCont>
+            {/* change to button comp */}
+            <AlertBtn onClick={()=>{}}>
+                <MdCheck size={24} />
+                <h5>Completed</h5>
+            </AlertBtn>
+        </BtnCont>
     </Container>
 }
 
