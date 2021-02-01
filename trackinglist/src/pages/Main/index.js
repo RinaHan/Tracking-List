@@ -10,6 +10,15 @@ import Inputs from 'comps/Inputs';
 
 
 const Main = () => {
+
+    const HandleFormComplete = async (medication, dosage, hour, minute, handleExpand) => {
+        console.log(medication, dosage, hour, minute);
+        handleExpand();
+    }
+    const handleFormClose = (handleExpand) =>{
+        handleExpand();
+    }
+
     return <div className="main">
         <Medicont className="medicont"/>
         <Alert className="alert"/>
@@ -22,7 +31,9 @@ const Main = () => {
             <SmallButton label="AM" buttonBg="#4DC2A6" width="75px"/>
             <SmallButton label="PM" buttonBg="#E6E6E6" width="75px"/>
         </div>
-        <Form className="form"/>
+        <div className="form">
+            <Form  onFormComplete={HandleFormComplete} onFormClose={handleFormClose}/>
+        </div>
         <Inform className="inform"/>
         <Medicard className="medicard"/>
         <Inputs className="Inputs"/>
