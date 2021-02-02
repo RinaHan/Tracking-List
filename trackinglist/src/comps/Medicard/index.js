@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import alarm from "comps/Medicard/alarm.png";
+import { MdAlarm } from "react-icons/md";
 
 const Container = styled.div`
   display: flex;
 `;
 
 const CardLeft = styled.div`
-  width: 75px;
+  min-width: 75px;
   height: 125px;
   border-radius: 25px 0 0 25px;
-  background-color: #ce574f;
+  background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#ce574f")};
 `;
 
 const Time = styled.div`
@@ -44,7 +44,8 @@ const MIN = styled.div``;
 const CardRight = styled.div`
   display: flex;
   flex-direction: column;
-  width: 200px;
+  min-width: 200px;
+  max-width: 250px;
   height: 125px;
   border-radius: 0 25px 25px 0;
   background-color: #fff;
@@ -73,7 +74,7 @@ const ButtomCont = styled.div`
   width: 90%;
 `;
 
-const Timer = styled.div`
+const TimerCont = styled.div`
   font-size: 7px;
   align-items: center;
   justify-content: center;
@@ -93,17 +94,26 @@ const Edit = styled.button`
   border-radius: 10px;
   background-color: #e6e6e6;
 `;
-
-const Icon = styled.img`
-  width: 8px;
-  height: 8px;
-  padding-right: 5px;
+const AlertIcon = styled.div`
+  position: relative;
+  bottom: 5%;
+  left: 80%;
+  border-radius: 50%;
 `;
 
-const Medicard = ({ hr, min, mediname, child, mom, timer }) => {
+const MediCard = ({
+  hr,
+  min,
+  mediname,
+  dosage,
+  timerHr,
+  timerMin,
+  AMPM,
+  bgcolor,
+}) => {
   return (
     <Container>
-      <CardLeft>
+      <CardLeft bgcolor={bgcolor}>
         <Time>
           <Bold>
             <HourNum>{hr}</HourNum>
@@ -118,12 +128,13 @@ const Medicard = ({ hr, min, mediname, child, mom, timer }) => {
       </CardLeft>
       <CardRight>
         <MediName>{mediname}</MediName>
-        <Dosage>{child}/{mom}</Dosage>
+        <Dosage>{dosage}</Dosage>
         <ButtomCont>
-          <Timer>
-            <Icon src={alarm} />
-            {timer} AM
-          </Timer>
+          <TimerCont>
+            <MdAlarm size={8} />
+            {timerHr}:{timerMin}
+            {AMPM}
+          </TimerCont>
           <Edit>Edit</Edit>
         </ButtomCont>
       </CardRight>
@@ -131,13 +142,14 @@ const Medicard = ({ hr, min, mediname, child, mom, timer }) => {
   );
 };
 
-Medicard.defaultProps = {
+MediCard.defaultProps = {
   hr: "00",
   min: "15",
   mediname: "Amlodipine Besylate",
-  child:"1",
-  mom:"1",
-  timer: "8:30",
+  dosage: "5",
+  timerHr: "8",
+  timerMin: "30",
+  AMPM: "AM",
 };
 
-export default Medicard;
+export default MediCard;
