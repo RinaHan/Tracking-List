@@ -52,7 +52,7 @@ const Main = () => {
                     <SmallButton label="Cancel" buttonBg="#E6E6E6" width="110px" />
                     <SmallButton label="Add" buttonBg="#18A0FB" width="110px" />
                     <SmallButton label="AM" buttonBg="#4DC2A6" width="75px" />
-                    <SmallButton label="PM" buttonBg="#E6E6E6" width="75px" /> */}
+                    <SmallButton label="PM" buttonBg="#E6E6E6" width="75px" />
                 </div>
             </div>*/}
         </div> 

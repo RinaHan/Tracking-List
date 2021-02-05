@@ -35,6 +35,12 @@ const FilterBtn = styled.button`
     justify-content: center;
     font-size: 12px;
     font-weight: bold;
+    filter: brightness(1);
+    :hover {
+        cursor: pointer;
+        filter: brightness(85%);
+        transition: 300ms ease-in-out;
+    }
 `;
 
 const Inform = ({onClickLatest, onClickName}) => {

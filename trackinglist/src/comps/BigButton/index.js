@@ -4,6 +4,9 @@ import {MdDone, MdAdd} from "react-icons/md";
 
 const Container = styled.div`
     padding: 10px;
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 const LargeButton = styled.button`

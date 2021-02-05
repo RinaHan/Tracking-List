@@ -25,6 +25,7 @@ const Time = styled.div`
 const Bold = styled.div`
   font-weight: 700;
   font-size: 18px;
+  text-align: right;
 `;
 
 const HourNum = styled.div``;
