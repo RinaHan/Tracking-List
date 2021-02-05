@@ -7,6 +7,7 @@ import Inform from "comps/Inform";
 import MediCont from "comps/Medicont";
 import MediCard from "comps/Medicard";
 import Inputs from "comps/Inputs";
+import {MdDone, MdAdd} from "react-icons/md";
 
 const Main = () => {
   const HandleFormComplete = async (
@@ -34,14 +35,17 @@ const Main = () => {
             </div>
 
             {/* MIDDLE COLUMN */}
-            <div className="column columnTwo">
+            <div className="column">
+                <div className="columnTwo"></div>
                 <MediCont className="medicont" bgcolor="#DFFAED" when="Upcoming"/>
             </div>
 
             {/* RIGHT COLUMN (REMOVE) */}
-            <div className="column">
+            {/* <div className="column">
+            <div className="columnTwo"></div>
                 <Alert className="alert" />
                 <div className="buttons">
+
                     {/* <BigButton label="Completed" icon="MdDone" />
                     <BigButton label="Add New Medication" icon="MdAdd" />
 
@@ -50,14 +54,14 @@ const Main = () => {
                     <SmallButton label="AM" buttonBg="#4DC2A6" width="75px" />
                     <SmallButton label="PM" buttonBg="#E6E6E6" width="75px" /> */}
                 </div>
-            </div>
-        </div>
+            </div>*/}
+        </div> 
 
         <div className="form">
-        <Form
-          onFormComplete={HandleFormComplete}
-          onFormClose={handleFormClose}
-          buttonText="Update" />
+          <Form
+            onFormComplete={HandleFormComplete}
+            onFormClose={handleFormClose}
+            buttonText="Update" />
       </div>
 
 
