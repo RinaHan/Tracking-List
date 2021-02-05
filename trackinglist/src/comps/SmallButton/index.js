@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     padding: 10px;
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 const TinyButton = styled.button`
