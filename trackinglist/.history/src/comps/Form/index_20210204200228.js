@@ -115,7 +115,7 @@ const Form = ({buttonText, FormType, onFormComplete, onFormClose}) => {
                     <Icon2 display3={display3}><IoIosArrowUp size={35} /></Icon2>
                 </Close>
             <Content expand={expand}>
-                    <WordCont><h4>Add Medication</h4>  </WordCont>
+                    <WordCont><h4>{FormType}</h4>  </WordCont>
                     <WordCont ><h4 style={{color: "grey"}}>Medication Name</h4></WordCont>
                     <InputCont><FormInput type='text' style={{fontSize: "16px"}} onChange={(e)=>{
                         setMedication(e.target.value);
