@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MediCard from "comps/MediCard";
+import MediCard from "comps/Medicard";
 
 const Container = styled.div`
   min-width: 330px;

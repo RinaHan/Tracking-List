@@ -3,7 +3,26 @@
     flex-direction: column;
     width: 100%;
     height: 710px;
-    background-color: blue;
+    // background-color: blue;
+
+.dashboard {
+    display: flex;
+    height: 100%;
+    align-items: stretch;
+    margin: 25px;
+}
+
+.column {
+    width: 100%;
+    margin: 10px;
+}
+
+// .column > .columnTwo {
+    
+// }
+
+
+
     // .medicont{
 
     // }

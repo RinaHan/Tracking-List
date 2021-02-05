@@ -4,8 +4,8 @@ import BigButton from "comps/BigButton";
 import SmallButton from "comps/SmallButton";
 import Form from "comps/Form";
 import Inform from "comps/Inform";
-import MediCont from "comps/MediCont";
-import MediCard from "comps/MediCard";
+import MediCont from "comps/Medicont";
+import MediCard from "comps/Medicard";
 import Inputs from "comps/Inputs";
 
 const Main = () => {
@@ -25,7 +25,44 @@ const Main = () => {
 
   return (
     <div className="main">
-      <Alert className="alert" />
+
+        <div className="dashboard">
+            {/* LEFT COLUMN */}
+            <div className="column">
+                <Inform className="inform" />
+                <MediCont className="medicont"/>
+            </div>
+
+            {/* MIDDLE COLUMN */}
+            <div className="column columnTwo">
+                <MediCont className="medicont" bgcolor="#DFFAED" when="Upcoming"/>
+            </div>
+
+            {/* RIGHT COLUMN (REMOVE) */}
+            <div className="column">
+                <Alert className="alert" />
+                <div className="buttons">
+                    <BigButton label="Completed" icon="MdDone" />
+                    <BigButton label="Add New Medication" icon="MdAdd" />
+
+                    <SmallButton label="Cancel" buttonBg="#E6E6E6" width="110px" />
+                    <SmallButton label="Add" buttonBg="#18A0FB" width="110px" />
+                    <SmallButton label="AM" buttonBg="#4DC2A6" width="75px" />
+                    <SmallButton label="PM" buttonBg="#E6E6E6" width="75px" />
+                </div>
+            </div>
+        </div>
+
+        <div className="form">
+        <Form
+          onFormComplete={HandleFormComplete}
+          onFormClose={handleFormClose}
+          buttonText="Update" />
+      </div>
+
+
+{/* COMPS */}
+      {/* <Alert className="alert" />
       <div className="buttons">
         <BigButton label="Completed" icon="MdDone" />
         <BigButton label="Add New Medication" icon="MdAdd" />
@@ -34,17 +71,17 @@ const Main = () => {
         <SmallButton label="Add" buttonBg="#18A0FB" width="110px" />
         <SmallButton label="AM" buttonBg="#4DC2A6" width="75px" />
         <SmallButton label="PM" buttonBg="#E6E6E6" width="75px" />
-      </div>
-      <div className="form">
+      </div> */}
+      {/* <div className="form">
         <Form
           onFormComplete={HandleFormComplete}
           onFormClose={handleFormClose}
-        />
-      </div>
-      <Inform className="inform" />
-      <MediCont className="medicont" />
-      <MediCont className="medicont" bgcolor="#DFFAED" />
-      <Inputs className="Inputs" />
+          buttonText="Update" />
+      </div> */}
+      {/* <Inform className="inform" /> */}
+      {/* <MediCont className="medicont" /> */}
+      {/* <MediCont className="medicont" bgcolor="#DFFAED" /> */}
+      {/* <Inputs className="Inputs" /> */}
     </div>
   );
 };
