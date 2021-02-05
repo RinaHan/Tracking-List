@@ -13,6 +13,10 @@ const LargeButton = styled.button`
     border: none;
     font-size:14px;
     background-color: #E6E6E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
 `;
 const Icon = styled.span`
     margin-left: -20px;
