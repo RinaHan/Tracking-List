@@ -4,11 +4,17 @@ import styled from 'styled-components';
 const moment = require('moment');
 
 const Container = styled.div`
+    @media (max-width:1500px) and (min-width:825px) {
+        width: 100%;
+    }
+    @media (max-width:825px) and (min-width:325px) {
+        width: 325px;
+    }
     display: flex;
     flex-direction: column;
     text-align: left;
-    max-width: 325px;
-
+    margin-bottom: 25px;
+    margin-left: 15px;
     p {
         color: #0000008C;
     }
