@@ -112,10 +112,10 @@ const Form = ({buttonText, FormType, onFormComplete, onFormClose}) => {
                 <Close onClick={handleExpand}>
                     <Title display1={display1}><h3>Add Medication</h3></Title>
                     <Icon1 display2={display2}><AiOutlinePlus size={25} /></Icon1>
-                    <Icon2 display3={display3}><IoIosArrowUp size={35} /></Icon2>
+                    <Icon2 display3={display3}><IoIosArrowUp size={30} /></Icon2>
                 </Close>
             <Content expand={expand}>
-                    <WordCont><h4>Add Medication</h4>  </WordCont>
+                    <WordCont><h4>{FormType}</h4>  </WordCont>
                     <WordCont ><h4 style={{color: "grey"}}>Medication Name</h4></WordCont>
                     <InputCont><FormInput type='text' style={{fontSize: "16px"}} onChange={(e)=>{
                         setMedication(e.target.value);
