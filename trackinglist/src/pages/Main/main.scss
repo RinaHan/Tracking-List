@@ -1,15 +1,22 @@
 .main{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    // display: flex;
+    // flex-direction: column;
+    // max-width: 50%;
+    max-width: 850px;
     // height: 710px;
     // background-color: blue;
+    margin: auto;
+}
+    
+
 
 .dashboard {
-    display: flex;
-    height: 800px;
-    align-items: flex-start;
-    margin: 25px;
+    display: flex; 
+    // height: 800px;
+    align-items: stretch;
+    justify-content: space-around;
+    // margin: 25px;
+    // background-color: papayawhip;
 }
 
 .column {
@@ -44,4 +51,4 @@
     // .Inputs{
 
     // }
-}
+//}
