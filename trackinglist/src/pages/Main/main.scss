@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 710px;
+    // height: 710px;
     // background-color: blue;
 
 .dashboard {
     display: flex;
-    height: 100%;
-    align-items: stretch;
+    height: 800px;
+    align-items: flex-start;
     margin: 25px;
 }
 
@@ -17,9 +17,9 @@
     margin: 10px;
 }
 
-// .column > .columnTwo {
-    
-// }
+.columnTwo {
+    height: 220px;
+}
 
 
 

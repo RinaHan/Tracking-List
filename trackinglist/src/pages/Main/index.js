@@ -34,12 +34,14 @@ const Main = () => {
             </div>
 
             {/* MIDDLE COLUMN */}
-            <div className="column columnTwo">
+            <div className="column">
+                <div className="columnTwo"></div>
                 <MediCont className="medicont" bgcolor="#DFFAED" when="Upcoming"/>
             </div>
 
             {/* RIGHT COLUMN (REMOVE) */}
             <div className="column">
+            <div className="columnTwo"></div>
                 <Alert className="alert" />
                 <div className="buttons">
                     <BigButton label="Completed" icon="MdDone" />
