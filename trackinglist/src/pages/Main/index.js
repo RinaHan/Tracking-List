@@ -178,9 +178,11 @@ const upcoming =[{
           </div> */}
           
         </div>
-        <div className="button">
-        {/* <BigButton label="Add New Medication" icon="MdAdd" /> */}
+
         </div>
+        {/* <div className="button">
+        <BigButton label="Add New Medication" icon="MdAdd" />
+        </div> */}
 
         {/* <div className="form">
           <Form />
