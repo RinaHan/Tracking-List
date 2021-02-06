@@ -137,6 +137,7 @@ const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) 
             <InputCont><FormInput type="time" style={{ fontSize: "20px" }} onChange={(e) => {
                     setMinute(e.target.value);
                 }} /></InputCont>
+                
             {/* <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
                 <InputCont height={"40px"} width={"50px"}><FormInput type="number" min="0" max="24" style={{ fontSize: "20px" }} onChange={(e) => {
                     setHour(e.target.value);
