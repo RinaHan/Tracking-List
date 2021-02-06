@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "mediname": "Adderall",
+        "dosage": "5",
+        "time": "700",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "mediname": "Amlodipine",
+        "dosage": "2.5",
+        "time": "830",
+        "completed": false
+    },
+    {
+        "id": 3,
+        "mediname": "Ativan",
+        "dosage": "5",
+        "time": "1000",
+        "completed": false
+    },
+    {
+        "id": 4,
+        "mediname": "Benzonatate",
+        "dosage": "5",
+        "time": "1015",
+        "completed": false
+    },
+    {
+        "id": 5,
+        "mediname": "Cephalexin",
+        "dosage": "10",
+        "time": "1145",
+        "completed": false
+    },
+    {
+        "id": 6,
+        "mediname": "Clindamycin",
+        "dosage": "2.5",
+        "time": "1145",
+        "completed": false
+    },
+    {
+        "id": 7,
+        "mediname": "Entresto",
+        "dosage": "5",
+        "time": "1215",
+        "completed": false
+    },
+    {
+        "id": 8,
+        "mediname": "Hydrochlorothiazide",
+        "dosage": "5",
+        "time": "1330",
+        "completed": false
+    },
+    {
+        "id": 9,
+        "mediname": "Ibuprofen",
+        "dosage": "2.5",
+        "time": "1445",
+        "completed": false
+    },
+    {
+        "id": 10,
+        "mediname": "Lisinopril",
+        "dosage": "5",
+        "time": "1700",
+        "completed": false
+    },
+    {
+        "id": 11,
+        "mediname": "Melatonin",
+        "dosage": "5",
+        "time": "2045",
+        "completed": false
+    },
+    {
+        "id": 12,
+        "mediname": "Trazodone",
+        "dosage": "5",
+        "time": "2200",
+        "completed": false
+    }
+]
