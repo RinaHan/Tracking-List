@@ -106,10 +106,10 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
     const [display3, setDisplay3] = useState(true);
     const [bgcolor, setBgcolor] = useState(true);
 
-    const [medication, setMedication] = useState("");
+    const [mediname, setMediname] = useState("");
     const [dosage, setDosage] = useState("");
-    const [hour, setHour] = useState(null);
-    const [minute, setMinute] = useState(null);
+    const [hr, setHour] = useState(null);
+    const [min, setMin] = useState(null);
 
     const handleExpand = () => {
         setExpand(!expand);

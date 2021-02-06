@@ -11,25 +11,19 @@ import MediCard from "comps/Medicard";
 import Inputs from "comps/Inputs";
 import { MdDone, MdAdd } from "react-icons/md";
 
+const meds = require("../api/medications.json");
+
 const Main = () => {
   //Initial state for medications
-  // const [medications, setMedications] = useState([]);
-  const [allMedications, setAll] = useState([]);
+  const [medications, setMedications] = useState([]);
+  const [allMedications, setAll] = useState(meds);
+ 
+//  var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
+//  var add_hour = 60
+//  var upcoming_time = (+current_time) + (+add_hour);
+//  console.log(upcoming_time);
 
-  //we need a function to comepare time:"" to current time
-
-  //get the array "medications" from db
-  //create var for the current time of day
-  //loop through they array
-  //compare medications.time to the current time
-  //if medication.time == var current_time + 60 minutes
-  //within.push()
-  //else if medication.time == current_time
-  //upcoming.push(medication)
-
-  const SortByTime = () => {
-    var meds = medications;
-  };
+// const within = medications.filter(o=>o.time > "12:00" && o.time < "13:00");
 
   //User Interaction (submit form)
   const HandleFormComplete = async (
@@ -42,7 +36,7 @@ const Main = () => {
     var time = hr + min;
     console.log({ mediname, dosage, time });
 
-    // var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min, xm:xm});
+    // var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
     // console.log("create", resp);
     // GetMedications();
     handleExpand();
@@ -57,50 +51,43 @@ const Main = () => {
   // }
 
   //User interaction (cancel form)
+
+  //Dummy data
+  const GetMedications = async() =>{
+    var resp = await axios.get("../api/medications.json");
+    var meds = resp.data.slice(0,12)
+    setMedications(meds);
+    setAll(resp.data);
+  }
+
   const handleFormClose = (handleExpand) => {
     handleExpand();
   };
 
+  const handleLatest = () =>{
+    setMedications(
+      allMedications.sort(sortByTime)
+    )
+  }
+  const handleName = () =>{
+    setMedications(
+      allMedications.sort(sortByName)
+    )
+  }
+
   //On page load, app gets medications
-  // useEffect(()=>{
-  //   GetMedications();
-  // }, []);
-
-  const medications = [
-    {
-      mediname: "ian",
-      dosage: "2",
-      hr: "10",
-      min: "20",
-    },
-    {
-      mediname: "farhaz",
-      dosage: "23",
-      hr: "1",
-      min: "2",
-    },
-    {
-      mediname: "sophia",
-      dosage: "23",
-      hr: "1",
-      min: "2",
-    },
-    {
-      mediname: "rina",
-      dosage: "23",
-      hr: "1",
-      min: "2",
-    },
-  ];
-
-  const within = [{}];
-  const upcoming = [{}];
+  useEffect(()=>{
+    GetMedications();
+  }, []);
 
   return (
     <div className="main">
 
       <div className="inform">
-        <Inform />
+        <Inform 
+          onClickLatest={handleLatest}
+          onClickName={handleName}
+        />
       </div>
 
       <div className="dashboard">
@@ -150,3 +137,24 @@ const Main = () => {
 };
 
 export default Main;
+
+function sortByTime(a,b){
+  if(a.time > b.time){
+      return 1;
+  }else if(a.time < b.time){
+      return -1;
+  }else{
+      return 0;
+  }
+}
+function sortByName(a,b){
+  if(a.mediname > b.mediname){
+      return -1;
+  }else if(a.mediname < b.mediname){
+      return 1;
+  }else{
+      return 0;
+  }
+}
+
+
