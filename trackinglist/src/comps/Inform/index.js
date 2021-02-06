@@ -60,7 +60,7 @@ const Inform = ({onClickLatest, onClickName}) => {
     }
 
     useEffect(() => {
-        var date = moment().format('ddd, MMM Do');
+        var date = moment().format('dddd, MMM Do');
         setCurrentDate(date);
       }, []);
 
