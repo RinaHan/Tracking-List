@@ -4,6 +4,10 @@ import { MdAlarm } from "react-icons/md";
 
 const Container = styled.div`
   display: flex;
+  flex-direction:row;
+  background-color:#BED;
+  width:100%auto;
+
 `;
 
 const CardLeft = styled.div`
@@ -111,8 +115,16 @@ const MediCard = ({
   AMPM,
   bgcolor,
 }) => {
+
+  const medications = [
+    {
+
+    }
+  ];
+
   return (
     <Container>
+      {medications.map(o=><div style={{display:"flex", flexDirection:"row", padding:"15px"}}>
       <CardLeft bgcolor={bgcolor}>
         <Time>
           <Bold>
@@ -128,7 +140,7 @@ const MediCard = ({
       </CardLeft>
       <CardRight>
         <MediName>{mediname}</MediName>
-        <Dosage>{dosage}</Dosage>
+        <Dosage>{dosage} mg</Dosage>
         <ButtomCont>
           <TimerCont>
             <MdAlarm size={8} />
@@ -138,18 +150,20 @@ const MediCard = ({
           <Edit>Edit</Edit>
         </ButtomCont>
       </CardRight>
+      </div>)}
     </Container>
   );
 };
 
 MediCard.defaultProps = {
-  hr: "00",
-  min: "15",
-  mediname: "Amlodipine Besylate",
-  dosage: "5",
-  timerHr: "8",
-  timerMin: "30",
-  AMPM: "AM",
+  hr: null,
+  min: null,
+  mediname: null,
+  dosage: null,
+  timerHr:null,
+  timerMin: null,
+  AMPM: null,
+
 };
 
 export default MediCard;

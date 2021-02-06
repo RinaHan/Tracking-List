@@ -23,9 +23,17 @@
 
 
 
-    // .medicont{
-
-    // }
+    .medicont{
+        min-width: 330px;
+  max-width: 400px;
+  padding-bottom:20px;
+ background-color:#DAB;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+    }
     // .alert{
 
     // }
