@@ -9,17 +9,17 @@ import {IoIosArrowUp} from 'react-icons/io';
 
 const Container = styled.div`
 @media (max-width:2000px) and (min-width:200px){
-    width:414px;
+    width:370px;
 }
 @media (max-width:4000px) and (min-width:1055px){
-    width:40%;
+    width:60%;
 }
 @media (max-width:10000px) and (min-width:2500px){
     width:1000px;
 }
     height:auto;
     background-color:#FFF;
-    position:fixed;
+    position:absolute;
     bottom:0;
     display:flex;
     flex-direction:column;
