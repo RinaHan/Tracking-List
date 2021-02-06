@@ -94,7 +94,7 @@ const Icon2 = styled.div`
 `;
 
 
-const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) => {
+const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
 
     const [expand, setExpand] = useState(true);
     const [display1, setDisplay1] = useState(true);
@@ -116,10 +116,10 @@ const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) 
     }
 
     return <Container >
-        <Close onClick={handleExpand}>
+        <Close onClick={handleExpand} bgcolor={bgcolor}>
             <Title display1={display1}><h3>Add Medication</h3></Title>
             <Icon1 display2={display2}><AiOutlinePlus size={25} /></Icon1>
-            <Icon2 display3={display3}><IoIosArrowUp size={35} /></Icon2>
+            <Icon2 display3={display3}><IoIosArrowDown size={35} /></Icon2>
         </Close>
         <Content expand={expand}>
             <WordCont><h4>Add Medication</h4>  </WordCont>
