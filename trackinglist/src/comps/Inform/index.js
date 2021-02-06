@@ -13,7 +13,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     margin-left: 15px;
     p {
         color: #0000008C;
