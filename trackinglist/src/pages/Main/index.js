@@ -98,48 +98,43 @@ const Main = () => {
 
   return (
     <div className="main">
+
       <div className="inform">
         <Inform />
       </div>
 
-        {/* LEFT COLUMN */}
-      {/* <div className="dashboard"> */}
-        <div className="dashboard">
-         
-          <div className="medicont">
-            <h3>Within the Hour</h3>
-            {medications.map((o) => {
-              
-              return (
-                <MediCard
-                  hr={o.hr}
-                  min={o.min}
-                  mediname={o.mediname}
-                  dosage={o.dosage}
-                />
+      <div className="dashboard">
 
-              );
-            })}
-          </div>
-        {/* </div> */}
-
-        {/* MIDDLE COLUMN */}
-        <div className="column columnTwo">
-          <div className="medicont">
-            <h3>Upcoming</h3>
-            {medications.map((o) => {
-              return (
-                <MediCard
-                  hr={o.hr}
-                  min={o.min}
-                  mediname={o.mediname}
-                  dosage={o.dosage}
-                />
-              );
-            })}
-          </div>
+        <div className="medibox">
+        <div className="medicont">
+          <h3>Within the Hour</h3>
+          {medications.map((o) => {
+            return (
+              <MediCard
+                hr={o.hr}
+                min={o.min}
+                mediname={o.mediname}
+                dosage={o.dosage}
+                // bgcolor={"#dad"}
+              />
+            );
+          })}
         </div>
-      </div>
+
+        <div className="secondMedicont">
+          <h3>Upcoming</h3>
+          {medications.map((o) => {
+            return (
+              <MediCard
+                hr={o.hr}
+                min={o.min}
+                mediname={o.mediname}
+                dosage={o.dosage}
+              />
+            );
+          })}
+        </div>
+        </div>
 
       <div className="form">
         <Form
@@ -148,6 +143,9 @@ const Main = () => {
           buttonText="Update"
         />
       </div>
+        
+      </div>
+
     </div>
   );
 };

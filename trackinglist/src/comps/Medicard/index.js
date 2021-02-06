@@ -5,9 +5,9 @@ import { MdAlarm } from "react-icons/md";
 const Container = styled.div`
   display: flex;
   flex-direction:row;
-  background-color:#BED;
-  width:100%auto;
-
+  background-color:#D2E0E9;
+  padding:0 10px 0 10px;
+  
 `;
 
 const CardLeft = styled.div`
