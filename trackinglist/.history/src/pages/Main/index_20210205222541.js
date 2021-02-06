@@ -17,100 +17,32 @@ const Main = () => {
 
   //reset medications
   // const [allMedications, setAll] = useState([]);
+
+  //we need a function to comepare time:"" to current time
+
+  //get the array "medications" from db
+  //create var for the current time of day
+  //loop through they array
+  //compare medications.time to the current time
+  //if medication.time == var current_time + 60 minutes
+  //within.push()
+  //else if medication.time == current_time
+  //upcoming.push(medication)
+
  
-//  var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
-//  var add_hour = 60
-//  var upcoming_time = (+current_time) + (+add_hour);
-//  console.log(upcoming_time);
+ var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
+ 
 
- const medications = [
-  {
-      "id": 1,
-      "mediname": "Adderall",
-      "dosage": "5",
-      "time": "700",
-      "completed": false
-  },
-  {
-      "id": 2,
-      "mediname": "Amlodipine",
-      "dosage": "2.5",
-      "time": "830",
-      "completed": false
-  },
-  {
-      "id": 3,
-      "mediname": "Ativan",
-      "dosage": "5",
-      "time": "1000",
-      "completed": false
-  },
-  {
-      "id": 4,
-      "mediname": "Benzonatate",
-      "dosage": "5",
-      "time": "1015",
-      "completed": false
-  },
-  {
-      "id": 5,
-      "mediname": "Cephalexin",
-      "dosage": "10",
-      "time": "1145",
-      "completed": false
-  },
-  {
-      "id": 6,
-      "mediname": "Clindamycin",
-      "dosage": "2.5",
-      "time": "1145",
-      "completed": false
-  },
-  {
-      "id": 7,
-      "mediname": "Entresto",
-      "dosage": "5",
-      "time": "1215",
-      "completed": false
-  },
-  {
-      "id": 8,
-      "mediname": "Hydrochlorothiazide",
-      "dosage": "5",
-      "time": "1330",
-      "completed": false
-  },
-  {
-      "id": 9,
-      "mediname": "Ibuprofen",
-      "dosage": "2.5",
-      "time": "1445",
-      "completed": false
-  },
-  {
-      "id": 10,
-      "mediname": "Lisinopril",
-      "dosage": "5",
-      "time": "1700",
-      "completed": false
-  },
-  {
-      "id": 11,
-      "mediname": "Melatonin",
-      "dosage": "5",
-      "time": "2045",
-      "completed": false
-  },
-  {
-      "id": 12,
-      "mediname": "Trazodone",
-      "dosage": "5",
-      "time": "2200",
-      "completed": false
-  }
-];
+ var upcoming_time = current_time + "60";
+ console.log(current_time, upcoming_time);
 
-// const within = medications.filter(o=>o.time > "12:00" && o.time < "13:00");
+ const Upcoming = [{
+
+ }];
+
+ const Within = [{
+   
+}];
 
   //User Interaction (submit form)
   const HandleFormComplete = async (
@@ -123,7 +55,7 @@ const Main = () => {
     var time = hr + min;
     console.log({ mediname, dosage, time });
 
-    // var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
+    // var resp = await axios.post("../", {mediname:mediname, dosage:dosage, hr:hr, min:min});
     // console.log("create", resp);
     // GetMedications();
     handleExpand();
@@ -146,7 +78,36 @@ const Main = () => {
   // useEffect(()=>{
   //   GetMedications();
   // }, []);
-  
+
+  const medications = [
+    {
+      mediname: "ian",
+      dosage: "2",
+      hr: "10",
+      min: "20",
+    },
+    {
+      mediname: "farhaz",
+      dosage: "23",
+      hr: "1",
+      min: "2",
+    },
+    {
+      mediname: "sophia",
+      dosage: "23",
+      hr: "1",
+      min: "2",
+    },
+    {
+      mediname: "rina",
+      dosage: "23",
+      hr: "1",
+      min: "2",
+    },
+  ];
+
+
+
   return (
     <div className="main">
       <div className="inform">
@@ -178,7 +139,7 @@ const Main = () => {
         <div className="column columnTwo">
           <div className="medicont">
             <h3>Upcoming</h3>
-            {within.map((o) => {
+            {medications.map((o) => {
               return (
                 <MediCard
                   hr={o.hr}
@@ -204,6 +165,4 @@ const Main = () => {
 };
 
 export default Main;
-
-
 
