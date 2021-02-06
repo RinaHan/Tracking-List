@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
-import {IoIosArrowDown} from 'react-icons/io';
-
+import {IoIosArrowUp} from 'react-icons/io';
 
 const Container = styled.div`
 @media (max-width:2000px) and (min-width:200px){
