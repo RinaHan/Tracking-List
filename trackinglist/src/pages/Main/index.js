@@ -34,7 +34,7 @@ const Main = () => {
 const SortByTime = () => {
   var meds = medications
   
-}
+};
 
 
   //User Interaction (submit form)
@@ -94,10 +94,10 @@ const SortByTime = () => {
 
 const within =[{
 
-}]
+}];
 const upcoming =[{
   
-}]
+}];
 
 
 
@@ -170,7 +170,7 @@ const upcoming =[{
         
         <div className="mediconts">
           <div className="column">
-            <MediCont  />
+            {/* <MediCont  /> */}
           </div>
 
           {/* <div className="column">
@@ -179,7 +179,7 @@ const upcoming =[{
           
         </div>
         <div className="button">
-        <BigButton label="Add New Medication" icon="MdAdd" />
+        {/* <BigButton label="Add New Medication" icon="MdAdd" /> */}
         </div>
 
         {/* <div className="form">
@@ -187,6 +187,7 @@ const upcoming =[{
         </div> */}
 
       </div>
+    </div>
     </div>
   );
 };

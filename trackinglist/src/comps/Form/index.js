@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
+import {IoIosArrowDown} from 'react-icons/io';
 import {IoIosArrowUp} from 'react-icons/io';
+
+
+
 
 const Container = styled.div`
 @media (max-width:2000px) and (min-width:200px){
@@ -91,7 +95,7 @@ const Icon2 = styled.div`
 `;
 
 
-const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) => {
+const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
 
     const [expand, setExpand] = useState(true);
     const [display1, setDisplay1] = useState(true);
@@ -113,16 +117,16 @@ const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) 
     }
 
     return <Container >
-        <Close onClick={handleExpand}>
+        <Close onClick={handleExpand} bgcolor={bgcolor}>
             <Title display1={display1}><h3>Add Medication</h3></Title>
             <Icon1 display2={display2}><AiOutlinePlus size={25} /></Icon1>
-            <Icon2 display3={display3}><IoIosArrowUp size={35} /></Icon2>
+            <Icon2 display3={display3}><IoIosArrowDown size={35} /></Icon2>
         </Close>
         <Content expand={expand}>
             <WordCont><h4>Add Medication</h4>  </WordCont>
             <WordCont ><h4 style={{ color: "grey" }}>Medication Name</h4></WordCont>
             <InputCont><FormInput type='text' style={{ fontSize: "16px" }} onChange={(e) => {
-                setMedication(e.target.value);
+                setMediname(e.target.value);
             }} /></InputCont>
             <WordCont ><h4 style={{ color: "grey" }}>Dosage</h4></WordCont>
             <InputCont><FormInput type='number' placeholder="mg" style={{ fontSize: "16px" }} onChange={(e) => {
@@ -133,7 +137,7 @@ const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) 
 
             <WordCont ><h4 style={{ color: "grey" }}>Time</h4></WordCont>
             <InputCont><FormInput type="time" style={{ fontSize: "20px" }} onChange={(e) => {
-                    setMinute(e.target.value);
+                    setMin(e.target.value);
                 }} /></InputCont>
                 
             {/* <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
@@ -149,7 +153,7 @@ const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) 
                     onFormClose(handleExpand)
                 }}><p>Cancel</p></FormButton>
                 <FormButton buttonColor={"#18A0FB"} onClick={() => {
-                    onFormComplete(medication, dosage, hour, minute, handleExpand)
+                    onFormComplete(mediname, dosage, hr, min, handleExpand)
                 }}><p style={{ color: "white" }}>{buttonText}</p> </FormButton>
             </div>
         </Content>
