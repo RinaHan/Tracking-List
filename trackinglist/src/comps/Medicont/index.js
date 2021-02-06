@@ -19,37 +19,12 @@ const CardCont = styled.div`
   position: relative;
 `;
 
+
 const MediCont = ({ bgcolor, when }) => {
   return (
     <Container bgcolor={bgcolor}>
       <h4>{when}</h4>
-      <CardCont>
-        <MediCard 
-        bgcolor="#ce574f" 
-        hr="3"
-        min="30"
-        mediname="Lisinopril"
-        dosage="2"
-        timerHr="8"
-        timerMin="20"
-        AMPM="AM"
-        />
-      </CardCont>
-      <CardCont>
-        <MediCard 
-        bgcolor="#874FCE" 
-        />
-      </CardCont>
-      <CardCont>
-        <MediCard 
-        bgcolor="#F6A860" 
-        />
-      </CardCont>
-      <CardCont>
-        <MediCard 
-        bgcolor="#6ABDD7" 
-        />
-      </CardCont>
+      <MediCard></MediCard>
     </Container>
   );
 };

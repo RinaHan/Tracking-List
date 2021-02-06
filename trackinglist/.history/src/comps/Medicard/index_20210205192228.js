@@ -156,6 +156,7 @@ const MediCard = ({
       </CardLeft>
       <CardRight>
         <MediName>{mediname}</MediName>
+<<<<<<< HEAD
         <Dosage>{dosage} mg</Dosage>
         <ButtomCont>
           <TimerCont>
@@ -165,6 +166,19 @@ const MediCard = ({
           </TimerCont>
           <Edit>Edit</Edit>
         </ButtomCont>
+=======
+        <Info>
+          <Dosage>{dosage}mg</Dosage>
+          <ButtomCont>
+            <TimerCont>
+              <MdAlarm size={12} />
+              {timerHr}:{timerMin}
+              {AMPM}
+            </TimerCont>
+            {/* <Edit>Edit</Edit> */}
+          </ButtomCont>
+        </Info>
+>>>>>>> main
       </CardRight>
       </div>)}
     </Container>

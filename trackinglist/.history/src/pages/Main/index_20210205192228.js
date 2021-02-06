@@ -9,7 +9,7 @@ import Inform from "comps/Inform";
 import MediCont from "comps/Medicont";
 import MediCard from "comps/Medicard";
 import Inputs from "comps/Inputs";
-import { MdDone, MdAdd } from "react-icons/md";
+import {MdDone, MdAdd} from "react-icons/md";
 
 
 
@@ -103,7 +103,6 @@ const upcoming =[{
 
   return (
     <div className="main">
-
         
         <div className="dashboard">
             {/* LEFT COLUMN */}
@@ -124,6 +123,7 @@ const upcoming =[{
             </div>
 
             {/* MIDDLE COLUMN */}
+<<<<<<< HEAD
             <div className="column columnTwo">
                 <div className="medicont">
                 <h3>Upcoming</h3>
@@ -136,6 +136,11 @@ const upcoming =[{
                       />;
                     })}
                 </div>
+=======
+            <div className="column">
+                <div className="columnTwo"></div>
+                <MediCont className="medicont" bgcolor="#DFFAED" when="Upcoming"/>
+>>>>>>> main
             </div>
 
             {/* RIGHT COLUMN (REMOVE) */}
@@ -160,33 +165,30 @@ const upcoming =[{
             onFormComplete={HandleFormComplete}
             onFormClose={handleFormClose}
             buttonText="Update" />
-
-      <div className="inform">
-        <Inform />
-
       </div>
 
-      <div className="dashboard">
-        
-        <div className="mediconts">
-          <div className="column">
-            <MediCont  />
-          </div>
 
-          {/* <div className="column">
-            <MediCont  bgcolor="#DFFAED" when="Upcoming" />
-          </div> */}
-          
-        </div>
-        <div className="button">
+{/* COMPS */}
+      {/* <Alert className="alert" />
+      <div className="buttons">
+        <BigButton label="Completed" icon="MdDone" />
         <BigButton label="Add New Medication" icon="MdAdd" />
-        </div>
 
-        {/* <div className="form">
-          <Form />
-        </div> */}
-
-      </div>
+        <SmallButton label="Cancel" buttonBg="#E6E6E6" width="110px" />
+        <SmallButton label="Add" buttonBg="#18A0FB" width="110px" />
+        <SmallButton label="AM" buttonBg="#4DC2A6" width="75px" />
+        <SmallButton label="PM" buttonBg="#E6E6E6" width="75px" />
+      </div> */}
+      {/* <div className="form">
+        <Form
+          onFormComplete={HandleFormComplete}
+          onFormClose={handleFormClose}
+          buttonText="Update" />
+      </div> */}
+      {/* <Inform className="inform" /> */}
+      {/* <MediCont className="medicont" /> */}
+      {/* <MediCont className="medicont" bgcolor="#DFFAED" /> */}
+      {/* <Inputs className="Inputs" /> */}
     </div>
   );
 };
