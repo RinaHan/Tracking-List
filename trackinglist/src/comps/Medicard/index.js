@@ -7,7 +7,6 @@ const Container = styled.div`
   flex-direction:row;
   background-color:#D2E0E9;
   padding:0 10px 0 10px;
-  
 `;
 
 const CardLeft = styled.div`
@@ -49,14 +48,15 @@ const MIN = styled.div``;
 const CardRight = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 200px;
-  max-width: 200px;
-  height: 125px;
+  min-width: ${props=>props.width ? props.width : "200px"};
+  min-height: ${props=>props.height ? props.height : "125px"};
+  max-width: ${props=>props.width ? props.width : "300px"};
+  max-height:${props=>props.height ? props.height : "125px"};
   border-radius: 0 25px 25px 0;
   background-color: #fff;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 15px;
+  padding-left: 20px;
 `;
 
 const MediName = styled.div`
@@ -66,18 +66,9 @@ const MediName = styled.div`
   text-align: left;
 `;
 
-const Info = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 25px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 24px;
-`
-
 const Dosage = styled.div`
   font-size: 12px;
-  //padding-top: 10px;
+  margin:5px 0 20px 0;
 `;
 
 const ButtomCont = styled.div`
@@ -85,7 +76,6 @@ const ButtomCont = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  //padding-top: 20px;
   width: 90%;
 `;
 
@@ -93,9 +83,6 @@ const TimerCont = styled.div`
   font-size: 12px;
   align-items: center;
   justify-content: center;
-  //display: flex;
-  /* width: 62px;
-  height: 15px; */
   padding: 5px 18px;
   background-color: #e6e6e6;
   border-radius: 50px;
@@ -114,12 +101,6 @@ const Edit = styled.button`
   border-radius: 10px;
   background-color: #e6e6e6;
 `;
-const AlertIcon = styled.div`
-  position: relative;
-  bottom: 5%;
-  left: 80%;
-  border-radius: 50%;
-`;
 
 const MediCard = ({
   hr,
@@ -133,9 +114,7 @@ const MediCard = ({
 }) => {
 
   const medications = [
-    {
-
-    }
+    {}
   ];
 
   return (
