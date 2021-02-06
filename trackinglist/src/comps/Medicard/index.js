@@ -67,6 +67,7 @@ const MediName = styled.div`
   font-weight: 700;
   color: #000;
   text-align: left;
+  text-transform: capitalize;
 `;
 
 const Dosage = styled.div`
