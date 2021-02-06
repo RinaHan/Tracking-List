@@ -30,13 +30,6 @@ const Content = styled.div`
     flex-direction:column;
     margin-top:30px;
 `;
-const Icon = styled.img`
-    width:auto;
-    height:30px;
-    display:flex;
-    align-items:center;
-    padding:10px;
-`;
 const WordCont = styled.div`
     width:auto;
     height:40px;
@@ -68,6 +61,9 @@ const FormButton = styled.button`
     display:flex;
     align-items:center;
     justify-content:center;
+    :hover {
+        cursor: pointer;
+    }
 `;
 const Close = styled.div`
     width:auto;
@@ -77,8 +73,16 @@ const Close = styled.div`
     display:flex;
     justify-content:space-evenly;
     align-items:center;
+<<<<<<< HEAD
+    background-color:${props => props.bgcolor ? "#E6E6E6" : "none"};
+    border-radius:12px;
+=======
+    :hover {
+        cursor: pointer;
+    }
+>>>>>>> main
 `;
-const Title = styled.text`
+const Title = styled.div`
     display:${(props) => (props.display1 ? "flex" : "none")};
 `;
 const Icon1 = styled.div`
@@ -89,48 +93,50 @@ const Icon2 = styled.div`
     display:${(props) => (props.display3 ? "none" : "flex")};
 `;
 
-const Form = ({buttonText, FormType, onFormComplete, onFormClose}) => {
+const Form = ({buttonText, onFormComplete, onFormClose}) => {
 
     const [expand, setExpand] = useState(true);
     const [display1, setDisplay1] = useState(true);
     const [display2, setDisplay2] = useState(true);
     const [display3, setDisplay3] = useState(true);
+    const [bgcolor, setBgcolor] = useState(true);
 
-    const [medication, setMedication] = useState("");
+    const [mediname, setMediname] = useState("");
     const [dosage, setDosage] = useState("");
-    const [hour, setHour] = useState("");
-    const [minute, setMinute] = useState("");
+    const [hr, setHr] = useState(null);
+    const [min, setMin] = useState(null);
 
     const handleExpand = () =>{
         setExpand(!expand);
         setDisplay1(!display1);
         setDisplay2(!display2);
         setDisplay3(!display3);
+        setBgcolor(!bgcolor);
     }
 
     return<Container >
-                <Close onClick={handleExpand}>
+                <Close onClick={handleExpand} bgcolor={bgcolor}>
                     <Title display1={display1}><h3>Add Medication</h3></Title>
                     <Icon1 display2={display2}><AiOutlinePlus size={25} /></Icon1>
-                    <Icon2 display3={display3}><IoIosArrowDown size={30} /></Icon2>
+                    <Icon2 display3={display3}><IoIosArrowDown size={35} /></Icon2>
                 </Close>
             <Content expand={expand}>
-                    <WordCont><h4>{FormType}</h4>  </WordCont>
+                    <WordCont><h4>Add Medication</h4>  </WordCont>
                     <WordCont ><h4 style={{color: "grey"}}>Medication Name</h4></WordCont>
                     <InputCont><FormInput type='text' style={{fontSize: "16px"}} onChange={(e)=>{
-                        setMedication(e.target.value);
+                        setMediname(e.target.value);
                     }}/></InputCont>
                     <WordCont ><h4 style={{color: "grey"}}>Dosage</h4></WordCont>
                     <InputCont><FormInput type='number' placeholder="mg"style={{fontSize: "16px"}} onChange={(e)=>{
                         setDosage(e.target.value);
                     }}/></InputCont>
-                    <div style={{display:"flex", flexDirection:"row", width:"100%", color:"grey"}}><WordCont><h4>Hour</h4><h4 style={{paddingLeft: "30px"}}>Minute</h4></WordCont></div>
+                    <div style={{display:"flex", flexDirection:"row", width:"100%", color:"grey"}}><WordCont><h4>Hour (24)</h4><h4 style={{paddingLeft: "30px"}}>Minute</h4></WordCont></div>
                     <div style={{width: "100%", display: "flex", flexDirection:"row"}}>   
-                    <InputCont height={"40px"} width={"50px"}><FormInput type="number"style={{fontSize: "20px"}} onChange={(e)=>{
-                        setHour(e.target.value);
+                    <InputCont height={"40px"} width={"50px"}><FormInput type="number" style={{fontSize: "20px"}} onChange={(e)=>{
+                        setHr(e.target.value);
                     }}/></InputCont>
-                    <InputCont style={{paddingLeft: "20px"}} height={"40px"} width={"50px"}><FormInput type="number"style={{fontSize: "20px"}} onChange={(e)=>{
-                        setMinute(e.target.value);
+                    <InputCont style={{paddingLeft: "55px"}} height={"40px"} width={"50px"}><FormInput type="number"style={{fontSize: "20px"}} onChange={(e)=>{
+                        setMin(e.target.value);
                     }}/></InputCont>
                     </div>
                     <div style={{display:"flex", flexDirection:"row", width:"100%", justifyContent:"space-evenly"}}>
@@ -138,7 +144,7 @@ const Form = ({buttonText, FormType, onFormComplete, onFormClose}) => {
                         onFormClose(handleExpand)
                     }}><p>Cancel</p></FormButton>
                     <FormButton buttonColor={"#18A0FB"} onClick={()=>{
-                        onFormComplete(medication, dosage, hour, minute, handleExpand)
+                        onFormComplete(mediname, dosage, hr, min, handleExpand)
                     }}><p style={{color:"white"}}>{buttonText}</p> </FormButton>
                     </div>
             </Content>
