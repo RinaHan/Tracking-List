@@ -6,6 +6,7 @@ import {IoIosArrowUp} from 'react-icons/io';
 
 
 
+
 const Container = styled.div`
 @media (max-width:2000px) and (min-width:200px){
     width:414px;
