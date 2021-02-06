@@ -68,6 +68,9 @@ const FormButton = styled.button`
     display:flex;
     align-items:center;
     justify-content:center;
+    :hover {
+        cursor: pointer;
+    }
 `;
 const Close = styled.div`
     width:auto;
@@ -77,6 +80,9 @@ const Close = styled.div`
     display:flex;
     justify-content:space-evenly;
     align-items:center;
+    :hover {
+        cursor: pointer;
+    }
 `;
 const Title = styled.text`
     display:${(props) => (props.display1 ? "flex" : "none")};

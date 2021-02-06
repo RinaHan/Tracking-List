@@ -25,6 +25,7 @@ const Time = styled.div`
 const Bold = styled.div`
   font-weight: 700;
   font-size: 18px;
+  text-align: right;
 `;
 
 const HourNum = styled.div``;
@@ -45,7 +46,7 @@ const CardRight = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 200px;
-  max-width: 250px;
+  max-width: 200px;
   height: 125px;
   border-radius: 0 25px 25px 0;
   background-color: #fff;
@@ -55,14 +56,24 @@ const CardRight = styled.div`
 `;
 
 const MediName = styled.div`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: #000;
+  text-align: left;
 `;
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+`
 
 const Dosage = styled.div`
   font-size: 12px;
-  padding-top: 10px;
+  //padding-top: 10px;
 `;
 
 const ButtomCont = styled.div`
@@ -70,19 +81,24 @@ const ButtomCont = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 20px;
+  //padding-top: 20px;
   width: 90%;
 `;
 
 const TimerCont = styled.div`
-  font-size: 7px;
+  font-size: 12px;
   align-items: center;
   justify-content: center;
-  display: flex;
-  width: 62px;
-  height: 15px;
+  //display: flex;
+  /* width: 62px;
+  height: 15px; */
+  padding: 5px 18px;
   background-color: #e6e6e6;
   border-radius: 50px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 `;
 
 const Edit = styled.button`
@@ -128,15 +144,17 @@ const MediCard = ({
       </CardLeft>
       <CardRight>
         <MediName>{mediname}</MediName>
-        <Dosage>{dosage}</Dosage>
-        <ButtomCont>
-          <TimerCont>
-            <MdAlarm size={8} />
-            {timerHr}:{timerMin}
-            {AMPM}
-          </TimerCont>
-          <Edit>Edit</Edit>
-        </ButtomCont>
+        <Info>
+          <Dosage>{dosage}mg</Dosage>
+          <ButtomCont>
+            <TimerCont>
+              <MdAlarm size={12} />
+              {timerHr}:{timerMin}
+              {AMPM}
+            </TimerCont>
+            {/* <Edit>Edit</Edit> */}
+          </ButtomCont>
+        </Info>
       </CardRight>
     </Container>
   );

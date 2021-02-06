@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import BigButton from 'comps/BigButton';
 
 import { MdAlarm } from 'react-icons/md';
 import { MdCheck } from 'react-icons/md';
@@ -46,23 +47,7 @@ const BtnCont = styled.div`
     align-items: center;
 `;
 
-const AlertBtn = styled.button`
-    width: 248px;
-    height: 47px;
-    background-color: #e6e6e6;
-    border: none;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    h5 {
-        font-weight: bold;
-        margin-left: 31px;
-    }
-`;
-
-const Alert = () => {
+const Alert = ({onCompleteTask}) => {
     return<Container>
         <AlertMsgCont>
             <AlertMsg>
@@ -71,17 +56,15 @@ const Alert = () => {
             </AlertMsg>
         </AlertMsgCont>
         <BtnCont>
-            {/* change to button comp */}
-            <AlertBtn onClick={()=>{}}>
-                <MdCheck size={24} />
-                <h5>Completed</h5>
-            </AlertBtn>
+            <BigButton icon={<MdCheck size={24}/>}  label="Completed" onClick={()=> {
+                onCompleteTask()
+            }} />
         </BtnCont>
     </Container>
 }
 
 Alert.defaultProps = {
-
+    onCompleteTask:()=>{}
 }
 
 export default Alert;
