@@ -42,12 +42,14 @@ const WordCont = styled.div`
     margin-top:20px;
 `;
 const FormInput = styled.input`
-    width:100%;
+    width:80%;
     height:100%;
     box-shadow: 1px 1px 9px -3px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     border:none;
     padding: 0 15px;
+    display: flex;
+    align-items: center;
 `;
 const InputCont = styled.div`
     width:${props => props.width ? props.width : "330px"};

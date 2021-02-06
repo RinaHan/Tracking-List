@@ -61,7 +61,7 @@ const CardRight = styled.div`
 `;
 
 const MediName = styled.div`
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 700;
   color: #000;
   text-align: left;
@@ -85,7 +85,7 @@ const Info = styled.div`
 `
 
 const Dosage = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   //padding-top: 10px;
 `;
 
@@ -103,8 +103,8 @@ const TimerCont = styled.div`
   align-items: center;
   justify-content: center;
   //display: flex;
-  /* width: 62px;
-  height: 15px; */
+  width: 48px;
+  //height: 15px;
   padding: 5px 18px;
   background-color: #e6e6e6;
   border-radius: 50px;
@@ -169,7 +169,7 @@ const MediCard = ({
           <Dosage>{dosage}mg</Dosage>
           <ButtomCont>
             <TimerCont>
-              <MdAlarm size={8} />
+              <MdAlarm size={14} />
               {timerHr}:{timerMin}
               {AMPM}
             </TimerCont>
