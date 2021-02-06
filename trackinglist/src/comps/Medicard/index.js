@@ -49,6 +49,7 @@ const MIN = styled.div``;
 const CardRight = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 15px;
   min-width: 200px;
   max-width: 200px;
   height: 125px;
@@ -64,6 +65,14 @@ const MediName = styled.div`
   font-weight: 700;
   color: #000;
   text-align: left;
+`;
+
+const MedDetails = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: center;
+
 `;
 
 const Info = styled.div`
@@ -156,15 +165,17 @@ const MediCard = ({
       </CardLeft>
       <CardRight>
         <MediName>{mediname}</MediName>
-        <Dosage>{dosage} mg</Dosage>
-        <ButtomCont>
-          <TimerCont>
-            <MdAlarm size={8} />
-            {timerHr}:{timerMin}
-            {AMPM}
-          </TimerCont>
-          <Edit>Edit</Edit>
-        </ButtomCont>
+        <MedDetails>
+          <Dosage>{dosage}mg</Dosage>
+          <ButtomCont>
+            <TimerCont>
+              <MdAlarm size={8} />
+              {timerHr}:{timerMin}
+              {AMPM}
+            </TimerCont>
+            {/* <Edit>Edit</Edit> */}
+          </ButtomCont>
+        </MedDetails>
       </CardRight>
       </div>)}
     </Container>
