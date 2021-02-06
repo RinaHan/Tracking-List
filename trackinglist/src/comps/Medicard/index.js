@@ -31,7 +31,10 @@ const Bold = styled.div`
   text-align: right;
 `;
 
-const HourNum = styled.div``;
+const HourNum = styled.div`
+padding-bottom: 7px;
+
+`;
 const MinNum = styled.div``;
 
 const NormalFont = styled.div`
@@ -40,7 +43,7 @@ const NormalFont = styled.div`
 `;
 
 const HR = styled.div`
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 `;
 
 const MIN = styled.div``;
@@ -76,7 +79,7 @@ const ButtomCont = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 85%;
 `;
 
 const TimerCont = styled.div`
@@ -86,7 +89,6 @@ const TimerCont = styled.div`
   padding: 5px 18px;
   background-color: #e6e6e6;
   border-radius: 50px;
-
   display: flex;
   flex-direction: row;
   gap: 5px;
