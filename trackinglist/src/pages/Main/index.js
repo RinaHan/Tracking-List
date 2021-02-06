@@ -115,7 +115,6 @@ const Main = () => {
                 min={o.min}
                 mediname={o.mediname}
                 dosage={o.dosage}
-                // bgcolor={"#dad"}
               />
             );
           })}
