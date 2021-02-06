@@ -17,10 +17,8 @@ import { MdDone, MdAdd } from "react-icons/md";
 const Main = () => {
 
   //Initial state for medications
-  // const [medications, setMedications] = useState([]);
-
-  //reset medications
-  // const [allMedications, setAll] = useState([]);
+  const [medications, setMedications] = useState([]);
+  const [allMedications, setAll] = useState([]);
 
 //we need a function to comepare time:"" to current time
 
@@ -33,7 +31,10 @@ const Main = () => {
 //else if medication.time == current_time
 //upcoming.push(medication)
 
-
+const SortByTime = () => {
+  var meds = medications
+  
+};
 
 
   //User Interaction (submit form)
@@ -41,20 +42,19 @@ const Main = () => {
     var time = hr + min;
     console.log({mediname, dosage, time});
 
-    // var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
-    // console.log("create", resp);
-    // GetMedications();
-
+    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
+    console.log("create", resp);
+    GetMedications();
     handleExpand();
   };
 
   //Retrieve medications
-  // const GetMedications = async () =>{
-  //   var resp = await axios.get("https://medication-list-backend.herokuapp.com/api/medications");
-  //   console.log("Get medications", resp);
-  //   //update state
-  //   setMedications(resp.data);
-  // } 
+  const GetMedications = async () =>{
+    var resp = await axios.get("https://medication-list-backend.herokuapp.com/api/medications");
+    console.log("Get medications", resp);
+    //update state
+    setMedications(resp.data);
+  } 
 
   //User interaction (cancel form)
   const handleFormClose = (handleExpand) => {
@@ -66,38 +66,44 @@ const Main = () => {
   //   GetMedications();
   // }, []);
 
-  const medications = [{
-    mediname:"ian",
-    dosage:"2",
-    hr:"10",
-    min:"20"
-  },
-  {
-    mediname:"farhaz",
-    dosage:"23",
-    hr:"1",
-    min:"2"
-  },
-  {
-    mediname:"sophia",
-    dosage:"23",
-    hr:"1",
-    min:"2"
-  },
-  {
-    mediname:"rina",
-    dosage:"23",
-    hr:"1",
-    min:"2"
-  }
-];
+//   const medications = [{
+//   //   mediname:"ian",
+//   //   dosage:"2",
+//   //   hr:"10",
+//   //   min:"20"
+//   // },
+//   // {
+//   //   mediname:"farhaz",
+//   //   dosage:"23",
+//   //   hr:"1",
+//   //   min:"2"
+//   // },
+//   // {
+//   //   mediname:"sophia",
+//   //   dosage:"23",
+//   //   hr:"1",
+//   //   min:"2"
+//   // },
+//   // {
+//   //   mediname:"rina",
+//   //   dosage:"23",
+//   //   hr:"1",
+//   //   min:"2"
+//   }
+// ];
 
-const within =[{
+// const within =[{
 
-}];
-const upcoming =[{
+// }];
+// const upcoming =[{
   
-}];
+// }];
+
+useEffect(()=>{
+  GetMedications();
+},[]);
+
+
 
   return (
     <div className="main">

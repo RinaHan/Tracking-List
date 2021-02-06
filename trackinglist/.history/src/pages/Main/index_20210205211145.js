@@ -17,7 +17,7 @@ import { MdDone, MdAdd } from "react-icons/md";
 const Main = () => {
 
   //Initial state for medications
-  // const [medications, setMedications] = useState([]);
+  const [medications, setMedications] = useState([]);
 
   //reset medications
   // const [allMedications, setAll] = useState([]);

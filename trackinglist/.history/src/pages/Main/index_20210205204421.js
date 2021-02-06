@@ -18,9 +18,7 @@ const Main = () => {
 
   //Initial state for medications
   // const [medications, setMedications] = useState([]);
-
-  //reset medications
-  // const [allMedications, setAll] = useState([]);
+  const [allMedications, setAll] = useState([]);
 
 //we need a function to comepare time:"" to current time
 
@@ -33,7 +31,10 @@ const Main = () => {
 //else if medication.time == current_time
 //upcoming.push(medication)
 
-
+const SortByTime = () => {
+  var meds = medications
+  
+};
 
 
   //User Interaction (submit form)
@@ -41,10 +42,9 @@ const Main = () => {
     var time = hr + min;
     console.log({mediname, dosage, time});
 
-    // var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
+    // var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min, xm:xm});
     // console.log("create", resp);
     // GetMedications();
-
     handleExpand();
   };
 
@@ -99,6 +99,8 @@ const upcoming =[{
   
 }];
 
+
+
   return (
     <div className="main">
 
@@ -125,14 +127,14 @@ const upcoming =[{
             <div className="column columnTwo">
                 <div className="medicont">
                 <h3>Upcoming</h3>
-                {/* {medications.map(o=>{
+                {medications.map(o=>{
                       return  <MediCard 
                       hr={o.hr}
                       min={o.min}
                       mediname={o.mediname}
                       dosage={o.dosage}
                       />;
-                    })} */}
+                    })}
                 </div>
             </div>
 
