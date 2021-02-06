@@ -51,10 +51,12 @@ const MIN = styled.div``;
 const CardRight = styled.div`
   display: flex;
   flex-direction: column;
+
   min-width: ${props=>props.width ? props.width : "200px"};
   min-height: ${props=>props.height ? props.height : "125px"};
   max-width: ${props=>props.width ? props.width : "300px"};
   max-height:${props=>props.height ? props.height : "125px"};
+
   border-radius: 0 25px 25px 0;
   background-color: #fff;
   justify-content: center;
@@ -63,16 +65,18 @@ const CardRight = styled.div`
 `;
 
 const MediName = styled.div`
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 700;
   color: #000;
   text-align: left;
   text-transform: capitalize;
 `;
 
+
 const Dosage = styled.div`
   font-size: 12px;
   margin:5px 0 20px 0;
+
 `;
 
 const ButtomCont = styled.div`
@@ -87,6 +91,7 @@ const TimerCont = styled.div`
   font-size: 12px;
   align-items: center;
   justify-content: center;
+
   padding: 5px 18px;
   background-color: #e6e6e6;
   border-radius: 50px;
@@ -138,15 +143,17 @@ const MediCard = ({
       </CardLeft>
       <CardRight>
         <MediName>{mediname}</MediName>
-        <Dosage>{dosage} mg</Dosage>
-        <ButtomCont>
-          <TimerCont>
-            <MdAlarm size={8} />
-            {timerHr}:{timerMin}
-            {AMPM}
-          </TimerCont>
-          <Edit>Edit</Edit>
-        </ButtomCont>
+        <MedDetails>
+          <Dosage>{dosage}mg</Dosage>
+          <ButtomCont>
+            <TimerCont>
+              <MdAlarm size={14} />
+              {timerHr}:{timerMin}
+              {AMPM}
+            </TimerCont>
+            {/* <Edit>Edit</Edit> */}
+          </ButtomCont>
+        </MedDetails>
       </CardRight>
       </div>)}
     </Container>

@@ -42,12 +42,14 @@ const WordCont = styled.div`
     margin-top:20px;
 `;
 const FormInput = styled.input`
-    width:100%;
+    width:80%;
     height:100%;
     box-shadow: 1px 1px 9px -3px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     border:none;
-    padding-left:5px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
 `;
 const InputCont = styled.div`
     width:${props => props.width ? props.width : "330px"};
@@ -92,6 +94,7 @@ const Icon1 = styled.div`
 `;
 const Icon2 = styled.div`
     display:${(props) => (props.display3 ? "none" : "flex")};
+    padding-top: 15px;
 `;
 
 
@@ -103,10 +106,10 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
     const [display3, setDisplay3] = useState(true);
     const [bgcolor, setBgcolor] = useState(true);
 
-    const [mediname, setMediname] = useState("");
+    const [medication, setMedication] = useState("");
     const [dosage, setDosage] = useState("");
-    const [hr, setHr] = useState(null);
-    const [min, setMin] = useState(null);
+    const [hour, setHour] = useState(null);
+    const [minute, setMinute] = useState(null);
 
     const handleExpand = () => {
         setExpand(!expand);
