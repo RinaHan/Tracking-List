@@ -31,19 +31,25 @@ const Main = () => {
       </div>
 
       <div className="dashboard">
+        
         <div className="mediconts">
-
           <div className="column">
-            <MediCont className="column" />
+            <MediCont  />
           </div>
 
-          <div className="column">
-            <MediCont className="column" bgcolor="#DFFAED" when="Upcoming" />
-          </div>
+          {/* <div className="column">
+            <MediCont  bgcolor="#DFFAED" when="Upcoming" />
+          </div> */}
+          
         </div>
         <div className="button">
         <BigButton label="Add New Medication" icon="MdAdd" />
         </div>
+
+        {/* <div className="form">
+          <Form />
+        </div> */}
+
       </div>
     </div>
   );
