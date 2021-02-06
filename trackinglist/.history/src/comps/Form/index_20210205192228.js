@@ -73,11 +73,14 @@ const Close = styled.div`
     display:flex;
     justify-content:space-evenly;
     align-items:center;
+<<<<<<< HEAD
     background-color:${props => props.bgcolor ? "#E6E6E6" : "none"};
     border-radius:12px;
+=======
     :hover {
         cursor: pointer;
     }
+>>>>>>> main
 `;
 const Title = styled.div`
     display:${(props) => (props.display1 ? "flex" : "none")};
