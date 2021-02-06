@@ -30,24 +30,10 @@ const Main = () => {
   //upcoming.push(medication)
 
  
- var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
- console.log(current_time);
+  console.log(new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
+  console.log(new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" }));
 
-//  const SortByTime = () =>{
-//    for(let i = 0; medications.length; i++);
-//       const medication = medications[i]
-//       if(medication.time == current_time + 60){
 
-//       }
-//  }
-
- const Upcoming = [{
-
- }];
-
- const Within = [{
-   
-}];
 
   //User Interaction (submit form)
   const HandleFormComplete = async (

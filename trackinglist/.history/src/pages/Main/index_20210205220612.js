@@ -31,7 +31,7 @@ const Main = () => {
 
  
  var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
- console.log(current_time);
+ console.log(current_time + "60");
 
 //  const SortByTime = () =>{
 //    for(let i = 0; medications.length; i++);

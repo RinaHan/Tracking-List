@@ -29,25 +29,11 @@ const Main = () => {
   //else if medication.time == current_time
   //upcoming.push(medication)
 
+  new Date().toTimeString().split(" ")[0];
  
- var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
- console.log(current_time);
+ 
 
-//  const SortByTime = () =>{
-//    for(let i = 0; medications.length; i++);
-//       const medication = medications[i]
-//       if(medication.time == current_time + 60){
 
-//       }
-//  }
-
- const Upcoming = [{
-
- }];
-
- const Within = [{
-   
-}];
 
   //User Interaction (submit form)
   const HandleFormComplete = async (

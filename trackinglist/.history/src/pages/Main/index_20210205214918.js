@@ -29,25 +29,12 @@ const Main = () => {
   //else if medication.time == current_time
   //upcoming.push(medication)
 
- 
- var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
- console.log(current_time);
+  var current_time = new Date();
+  current_time.getHours();
+  current_time.getMinutes();
+  console.log(current_time);
 
-//  const SortByTime = () =>{
-//    for(let i = 0; medications.length; i++);
-//       const medication = medications[i]
-//       if(medication.time == current_time + 60){
 
-//       }
-//  }
-
- const Upcoming = [{
-
- }];
-
- const Within = [{
-   
-}];
 
   //User Interaction (submit form)
   const HandleFormComplete = async (
@@ -63,6 +50,7 @@ const Main = () => {
     // var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
     // console.log("create", resp);
     // GetMedications();
+    SortByTime()
     handleExpand();
   };
 
