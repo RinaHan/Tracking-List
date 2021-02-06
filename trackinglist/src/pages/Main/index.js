@@ -34,7 +34,7 @@ const Main = () => {
 const SortByTime = () => {
   var meds = medications
   
-}
+};
 
 
   //User Interaction (submit form)
@@ -94,10 +94,10 @@ const SortByTime = () => {
 
 const within =[{
 
-}]
+}];
 const upcoming =[{
   
-}]
+}];
 
 
 
@@ -187,6 +187,7 @@ const upcoming =[{
         </div> */}
 
       </div>
+    </div>
     </div>
   );
 };

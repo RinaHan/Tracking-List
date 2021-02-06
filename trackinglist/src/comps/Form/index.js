@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
 import {IoIosArrowDown} from 'react-icons/io';
+import {IoIosArrowUp} from 'react-icons/io';
+
 
 
 const Container = styled.div`
@@ -123,7 +125,7 @@ const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) 
             <WordCont><h4>Add Medication</h4>  </WordCont>
             <WordCont ><h4 style={{ color: "grey" }}>Medication Name</h4></WordCont>
             <InputCont><FormInput type='text' style={{ fontSize: "16px" }} onChange={(e) => {
-                setMedication(e.target.value);
+                setMediname(e.target.value);
             }} /></InputCont>
             <WordCont ><h4 style={{ color: "grey" }}>Dosage</h4></WordCont>
             <InputCont><FormInput type='number' placeholder="mg" style={{ fontSize: "16px" }} onChange={(e) => {
@@ -134,7 +136,7 @@ const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) 
 
             <WordCont ><h4 style={{ color: "grey" }}>Time</h4></WordCont>
             <InputCont><FormInput type="time" style={{ fontSize: "20px" }} onChange={(e) => {
-                    setMinute(e.target.value);
+                    setMin(e.target.value);
                 }} /></InputCont>
                 
             {/* <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
@@ -150,7 +152,7 @@ const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) 
                     onFormClose(handleExpand)
                 }}><p>Cancel</p></FormButton>
                 <FormButton buttonColor={"#18A0FB"} onClick={() => {
-                    onFormComplete(medication, dosage, hour, minute, handleExpand)
+                    onFormComplete(mediname, dosage, hr, min, handleExpand)
                 }}><p style={{ color: "white" }}>{buttonText}</p> </FormButton>
             </div>
         </Content>
