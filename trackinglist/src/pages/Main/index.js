@@ -11,104 +11,17 @@ import MediCard from "comps/Medicard";
 import Inputs from "comps/Inputs";
 import { MdDone, MdAdd } from "react-icons/md";
 
+const meds = require("../api/medications.json");
+
 const Main = () => {
   //Initial state for medications
-  // const [medications, setMedications] = useState([]);
-
-  //reset medications
-  // const [allMedications, setAll] = useState([]);
+  const [medications, setMedications] = useState([]);
+  const [allMedications, setAll] = useState(meds);
  
 //  var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
 //  var add_hour = 60
 //  var upcoming_time = (+current_time) + (+add_hour);
 //  console.log(upcoming_time);
-
- const medications = [
-  {
-      "id": 1,
-      "mediname": "Adderall",
-      "dosage": "5",
-      "time": "700",
-      "completed": false
-  },
-  {
-      "id": 2,
-      "mediname": "Amlodipine",
-      "dosage": "2.5",
-      "time": "830",
-      "completed": false
-  },
-  {
-      "id": 3,
-      "mediname": "Ativan",
-      "dosage": "5",
-      "time": "1000",
-      "completed": false
-  },
-  {
-      "id": 4,
-      "mediname": "Benzonatate",
-      "dosage": "5",
-      "time": "1015",
-      "completed": false
-  },
-  {
-      "id": 5,
-      "mediname": "Cephalexin",
-      "dosage": "10",
-      "time": "1145",
-      "completed": false
-  },
-  {
-      "id": 6,
-      "mediname": "Clindamycin",
-      "dosage": "2.5",
-      "time": "1145",
-      "completed": false
-  },
-  {
-      "id": 7,
-      "mediname": "Entresto",
-      "dosage": "5",
-      "time": "1215",
-      "completed": false
-  },
-  {
-      "id": 8,
-      "mediname": "Hydrochlorothiazide",
-      "dosage": "5",
-      "time": "1330",
-      "completed": false
-  },
-  {
-      "id": 9,
-      "mediname": "Ibuprofen",
-      "dosage": "2.5",
-      "time": "1445",
-      "completed": false
-  },
-  {
-      "id": 10,
-      "mediname": "Lisinopril",
-      "dosage": "5",
-      "time": "1700",
-      "completed": false
-  },
-  {
-      "id": 11,
-      "mediname": "Melatonin",
-      "dosage": "5",
-      "time": "2045",
-      "completed": false
-  },
-  {
-      "id": 12,
-      "mediname": "Trazodone",
-      "dosage": "5",
-      "time": "2200",
-      "completed": false
-  }
-];
 
 // const within = medications.filter(o=>o.time > "12:00" && o.time < "13:00");
 
@@ -138,20 +51,43 @@ const Main = () => {
   // }
 
   //User interaction (cancel form)
+
+  //Dummy data
+  const GetMedications = async() =>{
+    var resp = await axios.get("../api/medications.json");
+    var meds = resp.data.slice(0,12)
+    setMedications(meds);
+    setAll(resp.data);
+  }
+
   const handleFormClose = (handleExpand) => {
     handleExpand();
   };
 
+  const handleLatest = () =>{
+    setMedications(
+      allMedications.sort(sortByTime)
+    )
+  }
+  const handleName = () =>{
+    setMedications(
+      allMedications.sort(sortByName)
+    )
+  }
+
   //On page load, app gets medications
-  // useEffect(()=>{
-  //   GetMedications();
-  // }, []);
+  useEffect(()=>{
+    GetMedications();
+  }, []);
 
   return (
     <div className="main">
 
       <div className="inform">
-        <Inform />
+        <Inform 
+          onClickLatest={handleLatest}
+          onClickName={handleName}
+        />
       </div>
 
       <div className="dashboard">
@@ -203,5 +139,23 @@ const Main = () => {
 
 export default Main;
 
+function sortByTime(a,b){
+  if(a.time > b.time){
+      return 1;
+  }else if(a.time < b.time){
+      return -1;
+  }else{
+      return 0;
+  }
+}
+function sortByName(a,b){
+  if(a.mediname > b.mediname){
+      return -1;
+  }else if(a.mediname < b.mediname){
+      return 1;
+  }else{
+      return 0;
+  }
+}
 
 
