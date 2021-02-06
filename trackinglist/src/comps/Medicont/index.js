@@ -4,8 +4,8 @@ import MediCard from "comps/Medicard";
 
 const Container = styled.div`
   min-width: 330px;
-  max-width: 400px;
-  padding-bottom:20px;
+  max-width: 500px;
+  padding-bottom:10px;
   background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#d2e0e9")};
   border-radius: 25px;
   display: flex;
