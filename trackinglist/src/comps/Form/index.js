@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { IoIosArrowUp } from 'react-icons/io';
+import {IoIosArrowDown} from 'react-icons/io';
+
 
 const Container = styled.div`
 @media (max-width:2000px) and (min-width:200px){
@@ -29,13 +30,6 @@ const Content = styled.div`
     align-items:flex-start;
     flex-direction:column;
     margin-top:30px;
-`;
-const Icon = styled.img`
-    width:auto;
-    height:30px;
-    display:flex;
-    align-items:center;
-    padding:10px;
 `;
 const WordCont = styled.div`
     width:auto;
@@ -80,11 +74,13 @@ const Close = styled.div`
     display:flex;
     justify-content:space-evenly;
     align-items:center;
+    background-color:${props => props.bgcolor ? "#E6E6E6" : "none"};
+    border-radius:12px;
     :hover {
         cursor: pointer;
     }
 `;
-const Title = styled.text`
+const Title = styled.div`
     display:${(props) => (props.display1 ? "flex" : "none")};
 `;
 const Icon1 = styled.div`
@@ -95,23 +91,26 @@ const Icon2 = styled.div`
     display:${(props) => (props.display3 ? "none" : "flex")};
 `;
 
+
 const Form = ({ buttonText, FormType, onFormComplete, onFormClose, minuteNum }) => {
 
     const [expand, setExpand] = useState(true);
     const [display1, setDisplay1] = useState(true);
     const [display2, setDisplay2] = useState(true);
     const [display3, setDisplay3] = useState(true);
+    const [bgcolor, setBgcolor] = useState(true);
 
-    const [medication, setMedication] = useState("");
+    const [mediname, setMediname] = useState("");
     const [dosage, setDosage] = useState("");
-    const [hour, setHour] = useState("");
-    const [minute, setMinute] = useState("");
+    const [hr, setHr] = useState(null);
+    const [min, setMin] = useState(null);
 
     const handleExpand = () => {
         setExpand(!expand);
         setDisplay1(!display1);
         setDisplay2(!display2);
         setDisplay3(!display3);
+        setBgcolor(!bgcolor);
     }
 
     return <Container >

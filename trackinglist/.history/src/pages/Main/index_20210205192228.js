@@ -123,6 +123,7 @@ const upcoming =[{
             </div>
 
             {/* MIDDLE COLUMN */}
+<<<<<<< HEAD
             <div className="column columnTwo">
                 <div className="medicont">
                 <h3>Upcoming</h3>
@@ -135,6 +136,11 @@ const upcoming =[{
                       />;
                     })}
                 </div>
+=======
+            <div className="column">
+                <div className="columnTwo"></div>
+                <MediCont className="medicont" bgcolor="#DFFAED" when="Upcoming"/>
+>>>>>>> main
             </div>
 
             {/* RIGHT COLUMN (REMOVE) */}
