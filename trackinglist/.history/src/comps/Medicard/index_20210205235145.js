@@ -72,7 +72,7 @@ const MediName = styled.div`
   text-transform: capitalize;
 `;
 
-const MedDetails = styled.div``;
+
 const Dosage = styled.div`
   font-size: 12px;
   margin:5px 0 20px 0;
