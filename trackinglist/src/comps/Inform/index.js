@@ -7,7 +7,7 @@ const Container = styled.div`
     @media (max-width:1500px) and (min-width:825px) {
         width: 100%;
     }
-    @media (max-width:825px) and (min-width:325px) {
+    @media (max-width:825px) and (min-width:0) {
         width: 325px;
     }
     display: flex;
