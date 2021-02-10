@@ -17,7 +17,7 @@
 }
 
 .inform {
-  width: 300px;
+  width: auto;
   position: relative;
   left: 20px;
 }
@@ -32,24 +32,24 @@
   display: flex;
   position: relative;
   left: 30px;
+  flex-direction: row;
+  gap: 30px;
 
 }
 
-.medicont {
-    margin-right: 30px;
-    background-color: #D2E0E9;
-    padding: 10px 0 25px 0;
-    border-radius: 25px;
-
-    //width: 700px;
-
-}
-
-.secondMedicont {
+.medicont, .secondMedicont, .thirdMedicont {
     position: relative;
     background-color: #D2E0E9;
     padding: 10px 0 25px 0;
     border-radius: 25px;
+    min-width: 345px;
+    // max-height: 475px;
+    // overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 
 .form {

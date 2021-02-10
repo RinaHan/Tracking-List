@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Alert from "comps/Alert";
-import BigButton from "comps/BigButton";
-import SmallButton from "comps/SmallButton";
+// import Alert from "comps/Alert"; //uncomment when we do completion
 import Form from "comps/Form";
 import Inform from "comps/Inform";
-import MediCont from "comps/Medicont";
 import MediCard from "comps/Medicard";
-import Inputs from "comps/Inputs";
-import { MdDone, MdAdd } from "react-icons/md";
 
 // const meds = require("../api/medications.json");
 
@@ -102,31 +97,44 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
       <div className="dashboard">
 
         <div className="medibox">
-        <div className="medicont">
-          <h3>Within the Hour</h3>
-          {within.map((o) => {
-            return (
-              <MediCard
-                time={o.time}
-                mediname={o.mediname}
-                dosage={o.dosage}
-              />
-            );
-          })}
-        </div>
+          <div className="medicont">
+            <h3>Within the Hour</h3>
+            {within.map((o) => {
+              return (
+                <MediCard
+                  time={o.time}
+                  mediname={o.mediname}
+                  dosage={o.dosage}
+                />
+              );
+            })}
+          </div>
 
-        <div className="secondMedicont">
-          <h3>Upcoming</h3>
-          {upcoming.map((o) => {
-            return (
-              <MediCard
-                time={o.time}
-                mediname={o.mediname}
-                dosage={o.dosage}
-              />
-            );
-          })}
-        </div>
+          <div className="secondMedicont">
+            <h3>Upcoming</h3>
+            {upcoming.map((o) => {
+              return (
+                <MediCard
+                  time={o.time}
+                  mediname={o.mediname}
+                  dosage={o.dosage}
+                />
+              );
+            })}
+          </div>
+
+          <div className="thirdMedicont">
+            <h3>Completed</h3> {/* retrieve all for now */}
+            {medications.map((o) => {
+              return (
+                <MediCard
+                  time={o.time}
+                  mediname={o.mediname}
+                  dosage={o.dosage}
+                />
+              );
+            })}
+          </div>
         </div>
 
       <div className="form">

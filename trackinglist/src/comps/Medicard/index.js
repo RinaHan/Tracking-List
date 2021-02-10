@@ -54,7 +54,7 @@ const CardRight = styled.div`
 
   min-width: ${props=>props.width ? props.width : "200px"};
   min-height: ${props=>props.height ? props.height : "125px"};
-  max-width: ${props=>props.width ? props.width : "300px"};
+  max-width: ${props=>props.width ? props.width : "200px"};
   max-height:${props=>props.height ? props.height : "125px"};
 
   border-radius: 0 25px 25px 0;
@@ -75,9 +75,9 @@ const MediName = styled.div`
 
 const MedDetails = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 35px;
   align-items: center;
+  justify-content: space-between;
+  min-width: 80%;
   
 `;
 const Dosage = styled.div`
@@ -88,10 +88,8 @@ const Dosage = styled.div`
 
 const ButtomCont = styled.div`
   font-size: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 85%;
+  display: flex;
+  width: 50%;
 `;
 
 const TimerCont = styled.div`
@@ -100,21 +98,12 @@ const TimerCont = styled.div`
   justify-content: center;
 
   padding: 5px 18px;
+  min-width: 50px;
   background-color: #e6e6e6;
   border-radius: 50px;
   display: flex;
   flex-direction: row;
   gap: 5px;
-`;
-
-const Edit = styled.button`
-  font-size: 12px;
-  font-weight: 500px;
-  border: none;
-  width: 86px;
-  height: 28px;
-  border-radius: 10px;
-  background-color: #e6e6e6;
 `;
 
 const MediCard = ({
@@ -155,7 +144,6 @@ const MediCard = ({
               <MdAlarm size={14} />
               {time}
             </TimerCont>
-            {/* <Edit>Edit</Edit> */}
           </ButtomCont>
         </MedDetails>
       </CardRight>
@@ -169,10 +157,7 @@ MediCard.defaultProps = {
   min: null,
   mediname: null,
   dosage: null,
-  timerHr:null,
-  timerMin: null,
-  AMPM: null,
-
+  time: null
 };
 
 export default MediCard;
