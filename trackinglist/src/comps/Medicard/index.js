@@ -70,12 +70,19 @@ const MediName = styled.div`
   color: #000;
   text-align: left;
   text-transform: capitalize;
+  margin-bottom: 15px;
 `;
 
-const MedDetails = styled.div``;
+const MedDetails = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  align-items: center;
+  
+`;
 const Dosage = styled.div`
   font-size: 12px;
-  margin:5px 0 20px 0;
+  //margin:5px 0 20px 0;
 
 `;
 
@@ -115,9 +122,7 @@ const MediCard = ({
   min,
   mediname,
   dosage,
-  timerHr,
-  timerMin,
-  AMPM,
+  time,
   bgcolor,
 }) => {
 
@@ -148,8 +153,7 @@ const MediCard = ({
           <ButtomCont>
             <TimerCont>
               <MdAlarm size={14} />
-              {timerHr}:{timerMin}
-              {AMPM}
+              {time}
             </TimerCont>
             {/* <Edit>Edit</Edit> */}
           </ButtomCont>

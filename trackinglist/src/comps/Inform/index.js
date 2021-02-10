@@ -70,11 +70,11 @@ const Inform = ({onClickLatest, onClickName}) => {
         <Filtering>
             <h5>Sort by</h5>
             <FilterBtn color={!color} bgcolor={!bgcolor} onClick={()=>{
-                handleSwitch(); onClickLatest()}
-            }>Latest</FilterBtn>
+                handleSwitch(); onClickLatest()
+            }}>Latest</FilterBtn>
             <FilterBtn color={color} bgcolor={bgcolor} onClick={()=>{
-                handleSwitch(); onClickName()}
-            }>Name</FilterBtn>
+                handleSwitch(); onClickName()
+            }}>Name</FilterBtn>
         </Filtering>
     </Container>
 }

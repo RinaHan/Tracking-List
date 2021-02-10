@@ -72,11 +72,12 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
     handleExpand();
   };
 
-  const handleLatest = () =>{
+  const handleTime = () =>{
     setMedications(
       allMedications.sort(sortByTime)
     )
   }
+
   const handleName = () =>{
     setMedications(
       allMedications.sort(sortByName)
@@ -93,7 +94,7 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
 
       <div className="inform">
         <Inform 
-          onClickLatest={handleLatest}
+          onClickLatest={handleTime}
           onClickName={handleName}
         />
       </div>
@@ -106,8 +107,7 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
           {within.map((o) => {
             return (
               <MediCard
-                hr={o.hr}
-                min={o.min}
+                time={o.time}
                 mediname={o.mediname}
                 dosage={o.dosage}
               />
@@ -120,8 +120,7 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
           {upcoming.map((o) => {
             return (
               <MediCard
-                hr={o.hr}
-                min={o.min}
+                time={o.time}
                 mediname={o.mediname}
                 dosage={o.dosage}
               />
