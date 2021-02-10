@@ -11,19 +11,24 @@ import MediCard from "comps/Medicard";
 import Inputs from "comps/Inputs";
 import { MdDone, MdAdd } from "react-icons/md";
 
-const meds = require("../api/medications.json");
+// const meds = require("../api/medications.json");
 
 const Main = () => {
   //Initial state for medications
   const [medications, setMedications] = useState([]);
-  const [allMedications, setAll] = useState(meds);
+  const [allMedications, setAll] = useState([]);
  
-//  var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
-//  var add_hour = 60
-//  var upcoming_time = (+current_time) + (+add_hour);
-//  console.log(upcoming_time);
+ var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
+ current_time = current_time.replace(":", "");
+ current_time = parseInt(current_time);
+ var add_hour = 60;
+ var upcoming_time = current_time + add_hour;
+ console.log(current_time);
 
-// const within = medications.filter(o=>o.time > "12:00" && o.time < "13:00");
+const within = medications.filter(o=>parseInt(o.time) > current_time && parseInt(o.time) < upcoming_time);
+console.log(within);
+
+const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parseInt(o.time) >= upcoming_time)
 
   //User Interaction (submit form)
   const HandleFormComplete = async (
@@ -36,30 +41,33 @@ const Main = () => {
     var time = hr + min;
     console.log({ mediname, dosage, time });
 
-    // var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
-    // console.log("create", resp);
-    // GetMedications();
+    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
+    console.log("create", resp);
+    GetMedications();
     handleExpand();
   };
 
   //Retrieve medications
-  // const GetMedications = async () =>{
-  //   var resp = await axios.get("https://medication-list-backend.herokuapp.com/api/medications");
-  //   console.log("Get medications", resp);
-  //   //update state
-  //   setMedications(resp.data);
-  // }
-
-  //User interaction (cancel form)
-
-  //Dummy data
-  const GetMedications = async() =>{
-    var resp = await axios.get("../api/medications.json");
-    var meds = resp.data.slice(0,12)
-    setMedications(meds);
-    setAll(resp.data);
+  const GetMedications = async () =>{
+    var resp = await axios.get("https://medication-list-backend.herokuapp.com/api/medications");
+    console.log("Get medications", resp);
+    //update state
+    // var arr = resp.data.slice(0,12)
+    setMedications(resp.data.medications);
+    setAll(resp.data.medications);
   }
 
+ 
+
+  //Dummy data
+  // const GetMedications = async() =>{
+  //   var resp = await axios.get("../api/medications.json");
+  //   var meds = resp.data.slice(0,12)
+  //   setMedications(meds);
+  //   setAll(resp.data);
+  // }
+
+   //User interaction (cancel form)
   const handleFormClose = (handleExpand) => {
     handleExpand();
   };
@@ -95,7 +103,7 @@ const Main = () => {
         <div className="medibox">
         <div className="medicont">
           <h3>Within the Hour</h3>
-          {medications.map((o) => {
+          {within.map((o) => {
             return (
               <MediCard
                 hr={o.hr}
@@ -109,7 +117,7 @@ const Main = () => {
 
         <div className="secondMedicont">
           <h3>Upcoming</h3>
-          {medications.map((o) => {
+          {upcoming.map((o) => {
             return (
               <MediCard
                 hr={o.hr}
