@@ -29,14 +29,15 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
   const HandleFormComplete = async (
     mediname,
     dosage,
-    hr,
-    min,
+    // hr,
+    // min,
+    time,
     handleExpand
   ) => {
-    var time = hr + min;
+    //var time = hr + min;
     console.log({ mediname, dosage, time });
 
-    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
+    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, time:time});
     console.log("create", resp);
     GetMedications();
     handleExpand();
@@ -86,7 +87,6 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
 
   return (
     <div className="main">
-
       <div className="inform">
         <Inform 
           onClickLatest={handleTime}

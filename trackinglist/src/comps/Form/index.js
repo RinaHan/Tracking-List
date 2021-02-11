@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
 import {IoIosArrowDown} from 'react-icons/io';
-import {IoIosArrowUp} from 'react-icons/io';
+//import {IoIosArrowUp} from 'react-icons/io';
 
 
 
@@ -98,7 +98,7 @@ const Icon2 = styled.div`
 `;
 
 
-const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
+const Form = ({ buttonText, onFormComplete, onFormClose }) => {
 
     const [expand, setExpand] = useState(true);
     const [display1, setDisplay1] = useState(true);
@@ -108,8 +108,7 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
 
     const [mediname, setMediname] = useState("");
     const [dosage, setDosage] = useState("");
-    const [hr, setHour] = useState(null);
-    const [min, setMin] = useState(null);
+    const [time, setTime] = useState(null);
 
     const handleExpand = () => {
         setExpand(!expand);
@@ -140,7 +139,7 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
 
             <WordCont ><h4 style={{ color: "grey" }}>Time</h4></WordCont>
             <InputCont><FormInput type="time" style={{ fontSize: "20px" }} onChange={(e) => {
-                    setMin(e.target.value);
+                    setTime(e.target.value);
                 }} /></InputCont>
                 
             {/* <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
@@ -156,7 +155,7 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
                     onFormClose(handleExpand)
                 }}><p>Cancel</p></FormButton>
                 <FormButton buttonColor={"#18A0FB"} onClick={() => {
-                    onFormComplete(mediname, dosage, hr, min, handleExpand)
+                    onFormComplete(mediname, dosage, time, handleExpand)
                 }}><p style={{ color: "white" }}>{buttonText}</p> </FormButton>
             </div>
         </Content>
@@ -166,8 +165,8 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
 Form.defaultProps = {
     buttonText: "default",
     FormType: "default",
-    onFormComplete: () => { },
-    onFormClose: () => { },
+    onFormComplete:()=>{},
+    onFormClose:()=>{}
 
 }
 
