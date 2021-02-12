@@ -163,6 +163,7 @@ const Main = ({}) => {
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  
                 />
               );
             })}
@@ -178,6 +179,8 @@ const Main = ({}) => {
                   dosage={o.dosage}
                   cardcolor="#F6A860"
                   bgcolor="#FAF2DF"
+                  btcolor="#F6A860"
+                  hovercolor="#e0876a"
                 />
               );
             })}
@@ -192,8 +195,9 @@ const Main = ({}) => {
                   mediname={o.mediname}
                   dosage={o.dosage}
                   cardcolor="#6ABDD7"
-                  bgcolor="#DFFAED
-                  "
+                  bgcolor="#DFFAED"
+                  btcolor="#6ABDD7"
+                  hovercolor="#009acd"
                 />
               );
             })}
