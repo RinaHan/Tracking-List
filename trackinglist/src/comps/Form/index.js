@@ -23,7 +23,7 @@ const Container = styled.div`
   } */
 
 
-    background-color:#dad;
+    background-color:#fff;
     /* position:fixed;
     bottom:0; */
     display:flex;
@@ -76,8 +76,8 @@ const FormButton = styled.button`
     margin-top:40px;
     margin-bottom:20px;
     display:flex;
-    /* align-items:center;
-    justify-content:center; */
+    align-items:center;
+    justify-content:center;
     :hover {
         cursor: pointer;
     }
@@ -88,8 +88,8 @@ const Close = styled.div`
     padding-left:30px;
     padding-right:30px;
     display:flex;
-    /* justify-content:space-evenly;
-    align-items:center; */
+    justify-content:space-evenly;
+    align-items:center;
     background-color:${props => props.bgcolor ? "#E6E6E6" : "none"};
     border-radius:12px;
     :hover {
