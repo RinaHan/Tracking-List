@@ -111,6 +111,7 @@ const MediCard = ({
   dosage,
   time,
   bgcolor,
+  cardcolor,
   onDelete
 }) => {
 
@@ -119,9 +120,9 @@ const MediCard = ({
   ];
 
   return (
-    <Container>
+    <Container bgcolor={bgcolor}>
       {medications.map(o=><div style={{display:"flex", flexDirection:"row", padding:"15px"}}>
-      <CardLeft bgcolor={bgcolor}>
+      <CardLeft cardcolor={cardcolor}>
         <Time>
           <Icon>
             <MdAlarm size={24}/>

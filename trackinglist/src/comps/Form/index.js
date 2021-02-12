@@ -6,21 +6,17 @@ import TimePicker from 'react-time-picker';
 import "react-time-picker/dist/TimePicker.css";
 
 const Container = styled.div`
-@media (max-width:768px) and (min-width:200px){
-    width:100%;
-}
-@media (max-width:4000px) and (min-width:768px){
-    min-width:400px;
-    width:30%;
-    max-width:50%;
-}
-/* @media (max-width:10000px) and (min-width:2500px){
-    width:50%;
-} */
-
-/* @media (max-width: 768px) {
-    position: relative;
-  } */
+@media (max-width: 768px) and (min-width: 200px) {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+  @media (max-width: 4000px) and (min-width: 768px) {
+    min-width: 400px;
+    width: 30%;
+    max-width: 50%;
+    margin-top: 30px;
+  }
 
 
     background-color:#fff;
