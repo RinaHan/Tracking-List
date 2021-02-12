@@ -12,10 +12,9 @@ const Container = styled.div`
     width:100%;
 }
 @media (max-width:4000px) and (min-width:768px){
+    min-width:400px;
     width:30%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    max-width:50%;
 }
 /* @media (max-width:10000px) and (min-width:2500px){
     width:50%;

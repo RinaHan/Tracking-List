@@ -9,7 +9,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  background-color: pink;
+  // background-color: pink;
   @media (max-width: 768px) {
     position: fixed;
   }
@@ -20,12 +20,13 @@
 }
 
 .inform {
+  // width: 350px;
   padding-left: 30px;
   @media (max-width: 768px) {
-    position: relative;
+    // position: relative;
   }
   @media (min-width: 768px) {
-    justify-content: center;
+    // justify-content: center;
   }
 }
 
@@ -72,10 +73,10 @@
 }
 
 .form {
-  margin-top: 70px;
-  align-items: center;
-  justify-content: center;
-  @media (max-width: 768px) {
-    position: relative;
-  }
+  // margin-top: 70px;
+  // position: fixed;
+  // bottom: 0;
+  // align-items: center;
+  // justify-content: center;
+ 
 }
