@@ -86,7 +86,7 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
 
   return (
     <div className="main">
-
+      <div className="content">
       <div className="inform">
         <Inform 
           onClickLatest={handleTime}
@@ -96,8 +96,8 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
 
       <div className="dashboard">
 
-        <div className="medibox">
-          <div className="medicont">
+        <div className="mediconts">
+          <div className="firstMedicont">
             <h3>Within the Hour</h3>
             {within.map((o) => {
               return (
@@ -118,6 +118,8 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  cardcolor="#F6A860"
+                  bgcolor="#FAF2DF"
                 />
               );
             })}
@@ -131,6 +133,9 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  cardcolor="#6ABDD7"
+                  bgcolor="#DFFAED
+                  "
                 />
               );
             })}
@@ -147,6 +152,7 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
         
       </div>
 
+    </div>
     </div>
   );
 };

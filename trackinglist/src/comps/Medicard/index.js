@@ -4,16 +4,16 @@ import { MdAlarm } from "react-icons/md";
 
 const Container = styled.div`
   display: flex;
-  flex-direction:row;
-  background-color:#D2E0E9;
-  padding:0 10px 0 10px;
+  flex-direction: row;
+  background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#d2e0e9")};
+  padding: 0 10px 0 10px;
 `;
 
 const CardLeft = styled.div`
   min-width: 75px;
   height: 125px;
   border-radius: 25px 0 0 25px;
-  background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#ce574f")};
+  background-color: ${(props) => (props.cardcolor ? props.cardcolor : "#ce574f")};
 `;
 
 const Time = styled.div`
@@ -32,8 +32,7 @@ const Bold = styled.div`
 `;
 
 const HourNum = styled.div`
-padding-bottom: 7px;
-
+  padding-bottom: 7px;
 `;
 const MinNum = styled.div``;
 
@@ -52,10 +51,10 @@ const CardRight = styled.div`
   display: flex;
   flex-direction: column;
 
-  min-width: ${props=>props.width ? props.width : "200px"};
-  min-height: ${props=>props.height ? props.height : "125px"};
-  max-width: ${props=>props.width ? props.width : "200px"};
-  max-height:${props=>props.height ? props.height : "125px"};
+  min-width: ${(props) => (props.width ? props.width : "200px")};
+  min-height: ${(props) => (props.height ? props.height : "125px")};
+  max-width: ${(props) => (props.width ? props.width : "200px")};
+  max-height: ${(props) => (props.height ? props.height : "125px")};
 
   border-radius: 0 25px 25px 0;
   background-color: #fff;
@@ -78,12 +77,10 @@ const MedDetails = styled.div`
   align-items: center;
   justify-content: space-between;
   min-width: 80%;
-  
 `;
 const Dosage = styled.div`
   font-size: 12px;
   //margin:5px 0 20px 0;
-
 `;
 
 const ButtomCont = styled.div`
@@ -96,7 +93,6 @@ const TimerCont = styled.div`
   font-size: 12px;
   align-items: center;
   justify-content: center;
-
   padding: 5px 18px;
   min-width: 50px;
   background-color: #e6e6e6;
@@ -106,48 +102,40 @@ const TimerCont = styled.div`
   gap: 5px;
 `;
 
-const MediCard = ({
-  hr,
-  min,
-  mediname,
-  dosage,
-  time,
-  bgcolor,
-}) => {
-
-  const medications = [
-    {}
-  ];
+const MediCard = ({ hr, min, mediname, dosage, time, bgcolor, cardcolor}) => {
+  const medications = [{}];
 
   return (
-    <Container>
-      {medications.map(o=><div style={{display:"flex", flexDirection:"row", padding:"15px"}}>
-      <CardLeft bgcolor={bgcolor}>
-        <Time>
-          <Bold>
-            <HourNum>{hr}</HourNum>
-            <MinNum>{min}</MinNum>
-          </Bold>
+    <Container bgcolor={bgcolor}>
+      {medications.map((o) => (
+        <div style={{ display: "flex", flexDirection: "row", padding: "15px" }}>
+          <CardLeft cardcolor={cardcolor}>
+            <Time>
+              <Bold>
+                <HourNum>{hr}</HourNum>
+                <MinNum>{min}</MinNum>
+              </Bold>
 
-          <NormalFont>
-            <HR>HR</HR>
-            <MIN>MIN</MIN>
-          </NormalFont>
-        </Time>
-      </CardLeft>
-      <CardRight>
-        <MediName>{mediname}</MediName>
-        <MedDetails>
-          <Dosage>{dosage}mg</Dosage>
-          <ButtomCont>
-            <TimerCont>
-              <MdAlarm size={14} />
-              {time}
-            </TimerCont>
-          </ButtomCont>
-        </MedDetails>
-      </CardRight>
-      </div>)}
+              <NormalFont>
+                <HR>HR</HR>
+                <MIN>MIN</MIN>
+              </NormalFont>
+            </Time>
+          </CardLeft>
+          <CardRight>
+            <MediName>{mediname}</MediName>
+            <MedDetails>
+              <Dosage>{dosage}mg</Dosage>
+              <ButtomCont>
+                <TimerCont>
+                  <MdAlarm size={14} />
+                  {time}
+                </TimerCont>
+              </ButtomCont>
+            </MedDetails>
+          </CardRight>
+        </div>
+      ))}
     </Container>
   );
 };
@@ -157,7 +145,7 @@ MediCard.defaultProps = {
   min: null,
   mediname: null,
   dosage: null,
-  time: null
+  time: null,
 };
 
 export default MediCard;
