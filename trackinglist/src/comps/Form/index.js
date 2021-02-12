@@ -25,11 +25,9 @@ const Container = styled.div`
   } */
 
 
-    /* padding-left: 30px; */
-    height:auto;
-    background-color:#FFF;
-    position:fixed;
-    bottom:0;
+    background-color:#dad;
+    /* position:fixed;
+    bottom:0; */
     display:flex;
     flex-direction:column;
     align-items:center;
