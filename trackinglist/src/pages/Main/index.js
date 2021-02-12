@@ -137,7 +137,7 @@ const Main = ({}) => {
 
   return (
     <div className="main">
-
+      <Alert ref={ref}/>
       <div className="content">
         <div className="inform">
           <Inform
@@ -146,12 +146,6 @@ const Main = ({}) => {
         </div>
 
       <div className="inform">
-        <Inform 
-        // byTime="handleTime"
-
-          // onClickLatest={handleTime}
-          // onClickName={handleName}
-        />
         
         {/* Works with these buttons in console... */}
         <button onClick={handleTime}>By Time</button>
@@ -161,7 +155,7 @@ const Main = ({}) => {
       <div className="dashboard">
 
         <div className="medibox">
-          <div className="medicont">
+          <div className="firstMedicont">
             <h3>Within the Hour</h3>
             {hour.map((o) => {
               return (
@@ -215,6 +209,7 @@ const Main = ({}) => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
