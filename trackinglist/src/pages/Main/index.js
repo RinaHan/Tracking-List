@@ -5,6 +5,7 @@ import axios from "axios";
 import Form from "comps/Form";
 import Inform from "comps/Inform";
 import MediCard from "comps/Medicard";
+import Countdown from 'comps/Countdown';
 
 // const meds = require("../api/medications.json");
 
@@ -12,47 +13,57 @@ const Main = () => {
   //Initial state for medications
   const [medications, setMedications] = useState([]);
   const [allMedications, setAll] = useState([]);
- 
- var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
- current_time = current_time.replace(":", "");
- current_time = parseInt(current_time);
- var add_hour = 60;
- var upcoming_time = current_time + add_hour;
- console.log(current_time);
 
-const within = medications.filter(o=>parseInt(o.time) > current_time && parseInt(o.time) < upcoming_time);
-console.log(within);
+  var current_time = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+  current_time = current_time.replace(":", "");
+  current_time = parseInt(current_time);
+  var add_hour = 60;
+  var upcoming_time = current_time + add_hour;
+  console.log(current_time);
 
-const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parseInt(o.time) >= upcoming_time)
+  const within = medications.filter(
+    (o) => parseInt(o.time) > current_time && parseInt(o.time) < upcoming_time
+  );
+  console.log(within);
+
+  const upcoming = medications.filter(
+    (o) => parseInt(o.time) <= current_time || parseInt(o.time) >= upcoming_time
+  );
 
   //User Interaction (submit form)
   const HandleFormComplete = async (
     mediname,
     dosage,
-    hr,
-    min,
+    // hr,
+    // min,
+    time,
     handleExpand
   ) => {
-    var time = hr + min;
+    //var time = hr + min;
     console.log({ mediname, dosage, time });
 
-    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
+    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, time:time});
+
     console.log("create", resp);
     GetMedications();
     handleExpand();
   };
 
   //Retrieve medications
-  const GetMedications = async () =>{
-    var resp = await axios.get("https://medication-list-backend.herokuapp.com/api/medications");
+  const GetMedications = async () => {
+    var resp = await axios.get(
+      "https://medication-list-backend.herokuapp.com/api/medications"
+    );
     console.log("Get medications", resp);
     //update state
     // var arr = resp.data.slice(0,12)
     setMedications(resp.data.medications);
     setAll(resp.data.medications);
-  }
-
- 
+  };
 
   //Dummy data
   // const GetMedications = async() =>{
@@ -62,7 +73,7 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
   //   setAll(resp.data);
   // }
 
-   //User interaction (cancel form)
+  //User interaction (cancel form)
   const handleFormClose = (handleExpand) => {
     handleExpand();
   };
@@ -100,12 +111,19 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
 
 
   //On page load, app gets medications
-  useEffect(()=>{
+  useEffect(() => {
     GetMedications();
   }, []);
 
   return (
     <div className="main">
+      <div className="content">
+        <div className="inform">
+          <Inform
+            onClickLatest={handleTime}
+            onClickName={handleName} />
+        </div>
+
 
       <div className="inform">
         <Inform 
@@ -144,6 +162,8 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  cardcolor="#F6A860"
+                  bgcolor="#FAF2DF"
                 />
               );
             })}
@@ -157,45 +177,25 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  cardcolor="#6ABDD7"
+                  bgcolor="#DFFAED
+                  "
                 />
               );
             })}
           </div>
         </div>
 
-      <div className="form">
-        <Form
-          onFormComplete={HandleFormComplete}
-          onFormClose={handleFormClose}
-          buttonText="Update"
-        />
+        <div className="form">
+          <Form
+            onFormComplete={HandleFormComplete}
+            onFormClose={handleFormClose}
+            buttonText="Update"
+          />
+        </div>
       </div>
-        
-      </div>
-
     </div>
   );
 };
 
 export default Main;
-
-// function sortByTime(a,b){
-//   if(a.time > b.time){
-//       return 1;
-//   }else if(a.time < b.time){
-//       return -1;
-//   }else{
-//       return 0;
-//   }
-// }
-// function sortByName(a,b){
-//   if(a.mediname > b.mediname){
-//       return -1;
-//   }else if(a.mediname < b.mediname){
-//       return 1;
-//   }else{
-//       return 0;
-//   }
-// }
-
-

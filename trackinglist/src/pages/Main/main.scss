@@ -1,50 +1,68 @@
 .main {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  align-items: center;
+}
+.content {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-
-  @media (max-width:2000px) and (min-width:200px){
-      width:414px;
+  // align-items: center;
+  // justify-content: center;
+  
+  // background-color: pink;
+  @media (max-width: 768px) {
+    position: fixed;
   }
-  @media (max-width:4000px) and (min-width:1055px){
-      width:40%;
+  @media (min-width: 768px) {
+    align-items: center;
   }
-  @media (max-width:10000px) and (min-width:2500px){
-      width:1000px;
-  }
-  margin: auto;
 }
 
 .inform {
-  width: auto;
+  padding-left: 30px;
+  @media (max-width: 768px) {
+  }
+  @media (min-width: 768px) {
+  padding: 30px 0 ;
+  }
+}
+
+.mediconts {
+  display: flex;
   position: relative;
   left: 20px;
-}
-
-.dashboard {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-}
-
-.medibox{
-  display: flex;
-  position: relative;
-  left: 30px;
   flex-direction: row;
   gap: 30px;
-
+  width: 70%;
+  height: 70%;
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
 }
 
-.medicont, .secondMedicont, .thirdMedicont {
-    position: relative;
-    background-color: #D2E0E9;
-    padding: 10px 0 25px 0;
-    border-radius: 25px;
-    min-width: 345px;
-    max-height: 450px;
-    overflow: scroll;
+.firstMedicont, .secondMedicont, .thirdMedicont {
+  position: relative;
+  padding: 10px 0 25px 0;
+  border-radius: 25px;
+  min-width: 345px;
+  max-width: 450px;
+  height: 520px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.firstMedicont {
+  background-color: #d2e0e9;
+}
+
+.secondMedicont {
+  background-color: #faf2df;
+}
+
+.thirdMedicont {
+  background-color: #dffaed;
 }
 
 ::-webkit-scrollbar {
@@ -53,5 +71,14 @@
 }
 
 .form {
-  margin-top: 70px;
+  @media (max-width: 768px) {
+    position:fixed;
+    bottom:0;
+  }
+  @media (min-width: 768px) {
+    position:relative;
+    top:30px;
+    // bottom:0;
+  }
+ 
 }
