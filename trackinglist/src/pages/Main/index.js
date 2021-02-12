@@ -78,13 +78,37 @@ const Main = () => {
     handleExpand();
   };
 
-  const handleTime = () => {
-    setMedications(allMedications.sort(sortByTime));
-  };
+  // Sorting Functions
+  function handleTime(){
+    setMedications(
+      allMedications.sort((a,b)=>{
+        if(a.time > b.time) {
+          return 1;
+        } else if(a.time < b.time) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+    )
+  }
 
-  const handleName = () => {
-    setMedications(allMedications.sort(sortByName));
-  };
+  function handleName() {
+    setMedications(
+      allMedications.sort((a,b)=>{
+        if(a.mediname > b.mediname) {
+          return 1;
+        } else if(a.mediname < b.mediname) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+    )
+  }
+
+  console.log(allMedications);
+
 
   //On page load, app gets medications
   useEffect(() => {
@@ -100,8 +124,24 @@ const Main = () => {
             onClickName={handleName} />
         </div>
 
-        <div className="mediconts">
-          <div className="firstMedicont">
+
+      <div className="inform">
+        <Inform 
+        // byTime="handleTime"
+
+          // onClickLatest={handleTime}
+          // onClickName={handleName}
+        />
+        
+        {/* Works with these buttons in console... */}
+        <button onClick={handleTime}>By Time</button>
+        <button onClick={handleName}>By Name</button>
+      </div>
+
+      <div className="dashboard">
+
+        <div className="medibox">
+          <div className="medicont">
             <h3>Within the Hour</h3>
             {within.map((o) => {
               return (
@@ -159,22 +199,3 @@ const Main = () => {
 };
 
 export default Main;
-
-function sortByTime(a, b) {
-  if (a.time > b.time) {
-    return 1;
-  } else if (a.time < b.time) {
-    return -1;
-  } else {
-    return 0;
-  }
-}
-function sortByName(a, b) {
-  if (a.mediname > b.mediname) {
-    return -1;
-  } else if (a.mediname < b.mediname) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
