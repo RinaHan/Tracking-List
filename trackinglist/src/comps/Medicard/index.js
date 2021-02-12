@@ -7,6 +7,9 @@ const Container = styled.div`
   flex-direction: row;
   background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#d2e0e9")};
   padding: 0 10px 0 10px;
+  justify-content:center;
+  min-width:${props=>props.width ? props.width : "400px"};
+  max-width:${props=>props.width ? props.width : "500px"};
 `;
 
 const CardLeft = styled.div`
@@ -50,12 +53,10 @@ const MIN = styled.div``;
 const CardRight = styled.div`
   display: flex;
   flex-direction: column;
-
   min-width: ${(props) => (props.width ? props.width : "200px")};
   min-height: ${(props) => (props.height ? props.height : "125px")};
   max-width: ${(props) => (props.width ? props.width : "200px")};
   max-height: ${(props) => (props.height ? props.height : "125px")};
-
   border-radius: 0 25px 25px 0;
   background-color: #fff;
   justify-content: center;

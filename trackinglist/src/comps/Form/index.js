@@ -11,11 +11,11 @@ const Container = styled.div`
 @media (max-width:768px) and (min-width:200px){
     width:100%;
 }
-@media (max-width:4000px) and (min-width:768px){
+/* @media (max-width:4000px) and (min-width:768px){
     min-width:400px;
     width:30%;
     max-width:50%;
-}
+} */
 /* @media (max-width:10000px) and (min-width:2500px){
     width:50%;
 } */
@@ -25,8 +25,6 @@ const Container = styled.div`
   } */
 
 
-    /* padding-left: 30px; */
-    height:auto;
     background-color:#FFF;
     position:fixed;
     bottom:0;
