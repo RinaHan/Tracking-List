@@ -137,7 +137,7 @@ const Main = ({}) => {
 
   return (
     <div className="main">
-
+      <Alert ref={ref}/>
       <div className="content">
         <div className="inform">
           <Inform
@@ -214,6 +214,7 @@ const Main = ({}) => {
           />
         </div>
       </div>
+    </div>
     </div>
   );
 };
