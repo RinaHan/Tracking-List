@@ -37,10 +37,8 @@
   width: 70%;
   height: 70%;
   @media (min-width: 768px) {
-    // align-items: center;
     justify-content: center;
   }
-
 }
 
 .firstMedicont, .secondMedicont, .thirdMedicont {
@@ -49,7 +47,7 @@
   border-radius: 25px;
   min-width: 345px;
   max-width: 450px;
-  height: 500px;
+  height: 520px;
   overflow: scroll;
   display: flex;
   flex-direction: column;
