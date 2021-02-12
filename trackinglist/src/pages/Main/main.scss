@@ -71,10 +71,14 @@
 }
 
 .form {
-  // margin-top: 70px;
-  // position: fixed;
-  // bottom: 0;
-  // align-items: center;
-  // justify-content: center;
+  @media (max-width: 768px) {
+    position:fixed;
+    bottom:0;
+  }
+  @media (min-width: 768px) {
+    position:relative;
+    top:30px;
+    // bottom:0;
+  }
  
 }
