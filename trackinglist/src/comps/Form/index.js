@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
 import {IoIosArrowDown} from 'react-icons/io';
+import TimePicker from 'react-time-picker';
+import "react-time-picker/dist/TimePicker.css";
 
 const Container = styled.div`
 @media (max-width:2000px) and (min-width:200px){
@@ -46,7 +48,13 @@ const FormInput = styled.input`
     padding: 0 15px;
     display: flex;
     align-items: center;
+
+    :focus {
+        outline: none !important;
+        border: 1px solid #D2E0E9;
+    }
 `;
+
 const InputCont = styled.div`
     width:${props => props.width ? props.width : "330px"};
     height:${props => props.height ? props.height : "40px"};
@@ -128,7 +136,7 @@ const Form = ({ buttonText, onFormComplete, onFormClose }) => {
                 <h4 style={{ color: "grey" }}>Medication Name</h4>
             </WordCont>
             <InputCont>
-                <FormInput type='text' style={{ fontSize: "16px" }} onChange={(e) => {
+                <FormInput class='time' type='text' style={{ fontSize: "16px" }} onChange={(e) => {
                     setMediname(e.target.value);
                 }}/>
             </InputCont>
@@ -144,6 +152,7 @@ const Form = ({ buttonText, onFormComplete, onFormClose }) => {
             <InputCont>
                 <FormInput type="time" style={{ fontSize: "20px" }} onChange={(e) => {
                     setTime(e.target.value);
+                    // selected={new Date("Thu Feb 18 2021 20:25:36 GMT-0800")}
                 }}/>
             </InputCont>
             <div style={{ display: "flex", flexDirection: "row", width: "100%", justifyContent: "space-evenly" }}>
