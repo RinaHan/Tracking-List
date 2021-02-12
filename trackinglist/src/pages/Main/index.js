@@ -27,13 +27,14 @@ const Main = ({}) => {
 
  
   //get current time &&  the time 1 hour into the future
-  // var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
-  // current_time = current_time.replace(":", "");
-  // current_time = parseInt(current_time);
-  // console.log(medications);
-  // console.log(current_time);
+  var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
+  current_time = current_time.replace(":", "");
+  current_time = parseInt(current_time);
+  console.log(medications);
+  console.log(current_time);
+  //comment lines 30-34 to use alert modal
 
-  var current_time = 2359;
+  // var current_time = 2359; //comment this out to see filtering
   var upcoming_time = current_time + 100;
 
   //filter only medications that are between the current time and an hour into the future
@@ -152,9 +153,8 @@ const Main = ({}) => {
         <button onClick={handleName}>By Name</button>
       </div>
 
-      <div className="dashboard">
 
-        <div className="medibox">
+        <div className="mediconts">
           <div className="firstMedicont">
             <h3>Within the Hour</h3>
             {hour.map((o) => {
@@ -209,7 +209,6 @@ const Main = ({}) => {
         </div>
       </div>
     </div>
-  </div>
   );
 };
 

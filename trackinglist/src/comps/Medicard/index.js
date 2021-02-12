@@ -42,22 +42,6 @@ const Icon = styled.div`
   box-shadow: 1px 1px 9px -3px rgba(0, 0, 0, 0.35);
 `;
 
-const HourNum = styled.div`
-  padding-bottom: 7px;
-`;
-const MinNum = styled.div``;
-
-const NormalFont = styled.div`
-  font-size: 10px;
-  padding-left: 5px;
-`;
-
-const HR = styled.div`
-  padding-bottom: 15px;
-`;
-
-const MIN = styled.div``;
-
 const CardRight = styled.div`
   display: flex;
   flex-direction: column;
@@ -149,10 +133,9 @@ const MediCard = ({
         <MediName>{mediname}</MediName>
         <MedDetails>
           <Dosage>{dosage}mg</Dosage>
-          <ButtonCont onClick={()=>{
-            onDelete(medications)
-            // this.delete.bind(this)
-          }}>
+          <ButtonCont onClick={()=>
+            onDelete()
+          }>
               <FaTrash size={14} color={"#fff"} />
               Delete
           </ButtonCont>
