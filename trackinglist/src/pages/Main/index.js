@@ -138,7 +138,7 @@ const Main = ({}) => {
 
   return (
     <div className="main">
-      <Alert ref={ref}/>
+      {/* <Alert ref={ref}/> */}
       <div className="content">
         <div className="inform">
           <Inform
