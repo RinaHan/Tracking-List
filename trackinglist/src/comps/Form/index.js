@@ -5,14 +5,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 
 const Container = styled.div`
-  /* @media (max-width:768px) and (min-width:200px){
-    width:100%;
-}
-@media (max-width:4000px) and (min-width:768px){
-    min-width:400px;
-    width:30%;
-    max-width:50%;
-} */
   @media (max-width: 768px) and (min-width: 200px) {
     width: 100%;
     position: fixed;
@@ -25,8 +17,8 @@ const Container = styled.div`
     margin-top: 30px;
   }
 
-  position: fixed;
-  bottom: 0;
+  /* position: fixed; */
+  /* bottom: 0; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,26 +65,25 @@ const FormButton = styled.button`
   margin-top: 40px;
   margin-bottom: 20px;
   display: flex;
-  /* align-items:center;
-    justify-content:center; */
+
   :hover {
     cursor: pointer;
   }
 `;
+
 const Close = styled.div`
   width: auto;
   height: auto;
   padding-left: 30px;
   padding-right: 30px;
   display: flex;
-  /* justify-content:space-evenly;
-    align-items:center; */
   background-color: ${(props) => (props.bgcolor ? "#E6E6E6" : "none")};
   border-radius: 12px;
   :hover {
     cursor: pointer;
   }
 `;
+
 const Title = styled.div`
   display: ${(props) => (props.display1 ? "flex" : "none")};
 `;
