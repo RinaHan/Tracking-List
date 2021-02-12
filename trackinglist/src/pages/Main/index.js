@@ -5,6 +5,7 @@ import axios from "axios";
 import Form from "comps/Form";
 import Inform from "comps/Inform";
 import MediCard from "comps/Medicard";
+import Countdown from 'comps/Countdown';
 
 // const meds = require("../api/medications.json");
 
@@ -37,17 +38,16 @@ const Main = () => {
   const HandleFormComplete = async (
     mediname,
     dosage,
-    hr,
-    min,
+    // hr,
+    // min,
+    time,
     handleExpand
   ) => {
-    var time = hr + min;
+    //var time = hr + min;
     console.log({ mediname, dosage, time });
 
-    var resp = await axios.post(
-      "https://medication-list-backend.herokuapp.com/api/medications",
-      { mediname: mediname, dosage: dosage, hr: hr, min: min }
-    );
+    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, time:time});
+
     console.log("create", resp);
     GetMedications();
     handleExpand();
@@ -95,7 +95,9 @@ const Main = () => {
     <div className="main">
       <div className="content">
         <div className="inform">
-          <Inform onClickLatest={handleTime} onClickName={handleName} />
+          <Inform
+            onClickLatest={handleTime}
+            onClickName={handleName} />
         </div>
 
         <div className="mediconts">
