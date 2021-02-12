@@ -67,17 +67,37 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
     handleExpand();
   };
 
-  const handleTime = () =>{
+  // Sorting Functions
+  function handleTime(){
     setMedications(
-      allMedications.sort(sortByTime)
+      allMedications.sort((a,b)=>{
+        if(a.time > b.time) {
+          return 1;
+        } else if(a.time < b.time) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
     )
   }
 
-  const handleName = () =>{
+  function handleName() {
     setMedications(
-      allMedications.sort(sortByName)
+      allMedications.sort((a,b)=>{
+        if(a.mediname > b.mediname) {
+          return 1;
+        } else if(a.mediname < b.mediname) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
     )
   }
+
+  console.log(allMedications);
+
 
   //On page load, app gets medications
   useEffect(()=>{
@@ -89,9 +109,15 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
 
       <div className="inform">
         <Inform 
-          onClickLatest={handleTime}
-          onClickName={handleName}
+        // byTime="handleTime"
+
+          // onClickLatest={handleTime}
+          // onClickName={handleName}
         />
+        
+        {/* Works with these buttons in console... */}
+        <button onClick={handleTime}>By Time</button>
+        <button onClick={handleName}>By Name</button>
       </div>
 
       <div className="dashboard">
@@ -153,23 +179,23 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
 
 export default Main;
 
-function sortByTime(a,b){
-  if(a.time > b.time){
-      return 1;
-  }else if(a.time < b.time){
-      return -1;
-  }else{
-      return 0;
-  }
-}
-function sortByName(a,b){
-  if(a.mediname > b.mediname){
-      return -1;
-  }else if(a.mediname < b.mediname){
-      return 1;
-  }else{
-      return 0;
-  }
-}
+// function sortByTime(a,b){
+//   if(a.time > b.time){
+//       return 1;
+//   }else if(a.time < b.time){
+//       return -1;
+//   }else{
+//       return 0;
+//   }
+// }
+// function sortByName(a,b){
+//   if(a.mediname > b.mediname){
+//       return -1;
+//   }else if(a.mediname < b.mediname){
+//       return 1;
+//   }else{
+//       return 0;
+//   }
+// }
 
 
