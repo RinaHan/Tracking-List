@@ -8,18 +8,28 @@ import {IoIosArrowUp} from 'react-icons/io';
 
 
 const Container = styled.div`
-@media (max-width:2000px) and (min-width:200px){
-    width:370px;
+@media (max-width:768px) and (min-width:200px){
+    width:100%;
 }
-@media (max-width:4000px) and (min-width:1055px){
-    width:60%;
+@media (max-width:4000px) and (min-width:768px){
+    width:30%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
-@media (max-width:10000px) and (min-width:2500px){
-    width:1000px;
-}
+/* @media (max-width:10000px) and (min-width:2500px){
+    width:50%;
+} */
+
+/* @media (max-width: 768px) {
+    position: relative;
+  } */
+
+
+    /* padding-left: 30px; */
     height:auto;
     background-color:#FFF;
-    position:absolute;
+    position:fixed;
     bottom:0;
     display:flex;
     flex-direction:column;
@@ -65,8 +75,8 @@ const FormButton = styled.button`
     margin-top:40px;
     margin-bottom:20px;
     display:flex;
-    align-items:center;
-    justify-content:center;
+    /* align-items:center;
+    justify-content:center; */
     :hover {
         cursor: pointer;
     }
@@ -77,8 +87,8 @@ const Close = styled.div`
     padding-left:30px;
     padding-right:30px;
     display:flex;
-    justify-content:space-evenly;
-    align-items:center;
+    /* justify-content:space-evenly;
+    align-items:center; */
     background-color:${props => props.bgcolor ? "#E6E6E6" : "none"};
     border-radius:12px;
     :hover {

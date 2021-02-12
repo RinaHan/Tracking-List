@@ -1,38 +1,32 @@
 .main {
   width: 100vw;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
 
-  // @media (max-width:2000px) and (min-width:200px){
-  //     width:414px;
-  // }
-  // @media (max-width:4000px) and (min-width:1055px){
-  //     width:40%;
-  // }
-  // @media (max-width:10000px) and (min-width:2500px){
-  //     width:1000px;
-  // }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    // padding:3vh;
-    // z-index: auto;
-  }
   margin: auto;
 }
-.content{
+.content {
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
   background-color: pink;
+  @media (max-width: 768px) {
+    position: fixed;
+  }
+  @media (min-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .inform {
-  width: auto;
-  position: relative;
-  left: 20px;
+  padding-left: 30px;
+  @media (max-width: 768px) {
+    position: relative;
+  }
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
 }
 
 .dashboard {
@@ -41,40 +35,35 @@
   flex-direction: column;
 }
 
-.mediconts{
+.mediconts {
   display: flex;
   position: relative;
   left: 30px;
   flex-direction: row;
   gap: 30px;
-
 }
 
 .firstMedicont, .secondMedicont, .thirdMedicont {
-    position: relative;
-    background-color: #D2E0E9;
-    padding: 10px 0 25px 0;
-    border-radius: 25px;
-    min-width: 345px;
-    max-height: 500px;
-    overflow: scroll;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
+  position: relative;
+  padding: 10px 0 25px 0;
+  border-radius: 25px;
+  min-width: 345px;
+  max-height: 500px;
+  overflow: scroll;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
 }
-.firstMedicont{
-}
-
-.secondMedicont{
-  background-color: #FAF2DF;
-
-
+.firstMedicont {
+  background-color: #d2e0e9;
 }
 
-.thirdMedicont{
-  background-color: #DFFAED;
+.secondMedicont {
+  background-color: #faf2df;
+}
 
-
+.thirdMedicont {
+  background-color: #dffaed;
 }
 
 ::-webkit-scrollbar {
@@ -84,4 +73,9 @@
 
 .form {
   margin-top: 70px;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 768px) {
+    position: relative;
+  }
 }
