@@ -118,6 +118,8 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  cardcolor="#F6A860"
+                  bgcolor="#FAF2DF"
                 />
               );
             })}
@@ -131,6 +133,9 @@ const upcoming = medications.filter(o=>parseInt(o.time) <= current_time || parse
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  cardcolor="#6ABDD7"
+                  bgcolor="#DFFAED
+                  "
                 />
               );
             })}
