@@ -5,16 +5,19 @@ import { FaTrash } from "react-icons/fa";
 
 const Container = styled.div`
   display: flex;
-  flex-direction:row;
-  background-color:#D2E0E9;
-  padding:0 10px 0 10px;
+  flex-direction: row;
+  background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#d2e0e9")};
+  padding: 0 10px 0 10px;
+  justify-content:center;
+  min-width:${props=>props.width ? props.width : "400px"};
+  max-width:${props=>props.width ? props.width : "500px"};
 `;
 
 const CardLeft = styled.div`
   min-width: 95px;
   height: 125px;
   border-radius: 25px 0 0 25px;
-  background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#ce574f")};
+  background-color: ${(props) => (props.cardcolor ? props.cardcolor : "#ce574f")};
 `;
 
 const Time = styled.div`
@@ -40,8 +43,7 @@ const Icon = styled.div`
 `;
 
 const HourNum = styled.div`
-padding-bottom: 7px;
-
+  padding-bottom: 7px;
 `;
 const MinNum = styled.div``;
 
@@ -64,7 +66,6 @@ const CardRight = styled.div`
   min-height: ${props=>props.height ? props.height : "125px"};
   max-width: ${props=>props.width ? props.width : "180px"};
   max-height:${props=>props.height ? props.height : "125px"};
-
   border-radius: 0 25px 25px 0;
   background-color: #fff;
   justify-content: center;
@@ -90,7 +91,6 @@ const MedDetails = styled.div`
 const Dosage = styled.div`
   font-size: 12px;
   //margin:5px 0 20px 0;
-
 `;
 
 // const ButtonCont = styled.div`
