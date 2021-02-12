@@ -49,7 +49,7 @@ const FilterBtn = styled.button`
     }
 `;
 
-const Inform = ({onClickLatest, onClickName}) => {
+const Inform = ({onClickLatest, onClickName, onClick, byTime}) => {
     const [currentDate, setCurrentDate] = useState([]);
     const [bgcolor, setBgColor] = useState(true);
     const [color, setColor] = useState(true);
@@ -69,19 +69,21 @@ const Inform = ({onClickLatest, onClickName}) => {
         <p>Welcome back! Here are your medications for today.</p>
         <Filtering>
             <h5>Sort by</h5>
-            <FilterBtn color={!color} bgcolor={!bgcolor} onClick={()=>{
-                handleSwitch(); onClickLatest()
+            <FilterBtn color={!color} bgcolor={!bgcolor} onClickCapture={()=>{
+                handleSwitch(); // onClickLatest();
+                onClick={byTime}
             }}>Latest</FilterBtn>
             <FilterBtn color={color} bgcolor={bgcolor} onClick={()=>{
-                handleSwitch(); onClickName()
+                handleSwitch(); onClickName();
             }}>Name</FilterBtn>
         </Filtering>
     </Container>
 }
 
 Inform.defaultProps = {
-    onClickLatest:()=>{},
-    onClickName:()=>{}
+    //onClickLatest:()=>{},
+    onClickName:()=>{},
+    byTime:{},
 }
 
 export default Inform;

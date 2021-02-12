@@ -5,7 +5,11 @@ import Alert from "comps/Alert";
 import Form from "comps/Form";
 import Inform from "comps/Inform";
 import MediCard from "comps/Medicard";
+
 import { MdPermDeviceInformation } from "react-icons/md";
+
+import Countdown from 'comps/Countdown';
+
 
 // const meds = require("../api/medications.json");
 
@@ -20,6 +24,7 @@ const Main = ({}) => {
   //Initial state for medications
   const [medications, setMedications] = useState([]);
   const [allMedications, setAll] = useState([]);
+
  
   //get current time &&  the time 1 hour into the future
   // var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
@@ -52,28 +57,33 @@ const Main = ({}) => {
   const HandleFormComplete = async (
     mediname,
     dosage,
-    hr,
-    min,
+    // hr,
+    // min,
+    time,
     handleExpand
   ) => {
-    var time = hr + min;
+    //var time = hr + min;
     console.log({ mediname, dosage, time });
 
-    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, hr:hr, min:min});
+    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, time:time});
+
     console.log("create", resp);
     GetMedications();
     handleExpand();
   };
 
   //Retrieve medications
-  const GetMedications = async () =>{
-    var resp = await axios.get("https://medication-list-backend.herokuapp.com/api/medications");
+  const GetMedications = async () => {
+    var resp = await axios.get(
+      "https://medication-list-backend.herokuapp.com/api/medications"
+    );
     console.log("Get medications", resp);
     //update state
     // var arr = resp.data.slice(0,12)
     setMedications(resp.data.medications);
     setAll(resp.data.medications);
-  }
+
+  };
 
   //Dummy data
   // const GetMedications = async() =>{
@@ -83,36 +93,69 @@ const Main = ({}) => {
   //   setAll(resp.data);
   // }
 
-   //User interaction (cancel form)
+  //User interaction (cancel form)
   const handleFormClose = (handleExpand) => {
     handleExpand();
   };
 
-  const handleTime = () =>{
+  // Sorting Functions
+  function handleTime(){
     setMedications(
-      allMedications.sort(sortByTime)
+      allMedications.sort((a,b)=>{
+        if(a.time > b.time) {
+          return 1;
+        } else if(a.time < b.time) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
     )
   }
 
-  const handleName = () =>{
+  function handleName() {
     setMedications(
-      allMedications.sort(sortByName)
+      allMedications.sort((a,b)=>{
+        if(a.mediname > b.mediname) {
+          return 1;
+        } else if(a.mediname < b.mediname) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
     )
   }
+
+  console.log(allMedications);
+
 
   //On page load, app gets medications
-  useEffect(()=>{
+  useEffect(() => {
     GetMedications();
   }, []);
 
   return (
     <div className="main">
-        {/* <Alert ref={ref}/> */}
+
+      <div className="content">
+        <div className="inform">
+          <Inform
+            onClickLatest={handleTime}
+            onClickName={handleName} />
+        </div>
+
       <div className="inform">
         <Inform 
-          onClickLatest={handleTime}
-          onClickName={handleName}
+        // byTime="handleTime"
+
+          // onClickLatest={handleTime}
+          // onClickName={handleName}
         />
+        
+        {/* Works with these buttons in console... */}
+        <button onClick={handleTime}>By Time</button>
+        <button onClick={handleName}>By Name</button>
       </div>
 
       <div className="dashboard">
@@ -139,6 +182,8 @@ const Main = ({}) => {
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  cardcolor="#F6A860"
+                  bgcolor="#FAF2DF"
                 />
               );
             })}
@@ -152,46 +197,25 @@ const Main = ({}) => {
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  cardcolor="#6ABDD7"
+                  bgcolor="#DFFAED
+                  "
                 />
               );
             })}
           </div>
         </div>
 
-      <div className="form">
-        <Form
-          onFormComplete={HandleFormComplete}
-          onFormClose={handleFormClose}
-          buttonText="Update"
-        />
+        <div className="form">
+          <Form
+            onFormComplete={HandleFormComplete}
+            onFormClose={handleFormClose}
+            buttonText="Update"
+          />
+        </div>
       </div>
-        
-      </div>
-
     </div>
   );
 };
 
 export default Main;
-
-function sortByTime(a,b){
-  if(a.time > b.time){
-      return 1;
-  }else if(a.time < b.time){
-      return -1;
-  }else{
-      return 0;
-  }
-}
-function sortByName(a,b){
-  if(a.mediname > b.mediname){
-      return -1;
-  }else if(a.mediname < b.mediname){
-      return 1;
-  }else{
-      return 0;
-  }
-}
-
-
-

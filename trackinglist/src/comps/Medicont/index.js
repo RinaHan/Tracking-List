@@ -3,8 +3,7 @@ import styled from "styled-components";
 import MediCard from "comps/Medicard";
 
 const Container = styled.div`
-  min-width: 330px;
-  max-width: 500px;
+  width:330px;
   padding-bottom:10px;
   background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#d2e0e9")};
   border-radius: 25px;
@@ -13,12 +12,6 @@ const Container = styled.div`
   align-items: center;
   position: relative;
 `;
-
-const CardCont = styled.div`
-  padding-bottom: 20px;
-  position: relative;
-`;
-
 
 const MediCont = ({ bgcolor, when }) => {
   return (

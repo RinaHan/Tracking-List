@@ -2,25 +2,30 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
 import {IoIosArrowDown} from 'react-icons/io';
-import {IoIosArrowUp} from 'react-icons/io';
-
-
-
+import TimePicker from 'react-time-picker';
+import "react-time-picker/dist/TimePicker.css";
 
 const Container = styled.div`
-@media (max-width:2000px) and (min-width:200px){
-    width:370px;
+@media (max-width:768px) and (min-width:200px){
+    width:100%;
 }
-@media (max-width:4000px) and (min-width:1055px){
-    width:60%;
+@media (max-width:4000px) and (min-width:768px){
+    min-width:400px;
+    width:30%;
+    max-width:50%;
 }
-@media (max-width:10000px) and (min-width:2500px){
-    width:1000px;
-}
-    height:auto;
-    background-color:#FFF;
-    position:absolute;
-    bottom:0;
+/* @media (max-width:10000px) and (min-width:2500px){
+    width:50%;
+} */
+
+/* @media (max-width: 768px) {
+    position: relative;
+  } */
+
+
+    background-color:#dad;
+    /* position:fixed;
+    bottom:0; */
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -50,7 +55,13 @@ const FormInput = styled.input`
     padding: 0 15px;
     display: flex;
     align-items: center;
+
+    :focus {
+        outline: none !important;
+        border: 1px solid #D2E0E9;
+    }
 `;
+
 const InputCont = styled.div`
     width:${props => props.width ? props.width : "330px"};
     height:${props => props.height ? props.height : "40px"};
@@ -65,8 +76,8 @@ const FormButton = styled.button`
     margin-top:40px;
     margin-bottom:20px;
     display:flex;
-    align-items:center;
-    justify-content:center;
+    /* align-items:center;
+    justify-content:center; */
     :hover {
         cursor: pointer;
     }
@@ -77,8 +88,8 @@ const Close = styled.div`
     padding-left:30px;
     padding-right:30px;
     display:flex;
-    justify-content:space-evenly;
-    align-items:center;
+    /* justify-content:space-evenly;
+    align-items:center; */
     background-color:${props => props.bgcolor ? "#E6E6E6" : "none"};
     border-radius:12px;
     :hover {
@@ -98,7 +109,7 @@ const Icon2 = styled.div`
 `;
 
 
-const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
+const Form = ({ buttonText, onFormComplete, onFormClose }) => {
 
     const [expand, setExpand] = useState(true);
     const [display1, setDisplay1] = useState(true);
@@ -108,8 +119,7 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
 
     const [mediname, setMediname] = useState("");
     const [dosage, setDosage] = useState("");
-    const [hr, setHour] = useState(null);
-    const [min, setMin] = useState(null);
+    const [time, setTime] = useState(null);
 
     const handleExpand = () => {
         setExpand(!expand);
@@ -126,38 +136,43 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
             <Icon2 display3={display3}><IoIosArrowDown size={35} /></Icon2>
         </Close>
         <Content expand={expand}>
-            <WordCont><h4>Add Medication</h4>  </WordCont>
-            <WordCont ><h4 style={{ color: "grey" }}>Medication Name</h4></WordCont>
-            <InputCont><FormInput type='text' style={{ fontSize: "16px" }} onChange={(e) => {
-                setMediname(e.target.value);
-            }} /></InputCont>
-            <WordCont ><h4 style={{ color: "grey" }}>Dosage</h4></WordCont>
-            <InputCont><FormInput type='number' placeholder="mg" style={{ fontSize: "16px" }} onChange={(e) => {
-                setDosage(e.target.value);
-            }} /></InputCont>
-
-            {/* <div style={{ display: "flex", flexDirection: "row", width: "100%", color: "grey" }}><WordCont><h4>Hour</h4><h4 style={{ paddingLeft: "30px" }}>Minute</h4></WordCont></div> */}
-
+            <WordCont>
+                <h4>Add Medication</h4>
+            </WordCont>
+            <WordCont>
+                <h4 style={{ color: "grey" }}>Medication Name</h4>
+            </WordCont>
+            <InputCont>
+                <FormInput class='time' type='text' style={{ fontSize: "16px" }} onChange={(e) => {
+                    setMediname(e.target.value);
+                }}/>
+            </InputCont>
+            <WordCont >
+                <h4 style={{ color: "grey" }}>Dosage</h4>
+            </WordCont>
+            <InputCont>
+                <FormInput type='number' placeholder="mg" style={{ fontSize: "16px" }} onChange={(e) => {
+                    setDosage(e.target.value);
+                }}/>
+            </InputCont>
             <WordCont ><h4 style={{ color: "grey" }}>Time</h4></WordCont>
-            <InputCont><FormInput type="time" style={{ fontSize: "20px" }} onChange={(e) => {
-                    setMin(e.target.value);
-                }} /></InputCont>
-                
-            {/* <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
-                <InputCont height={"40px"} width={"50px"}><FormInput type="number" min="0" max="24" style={{ fontSize: "20px" }} onChange={(e) => {
-                    setHour(e.target.value);
-                }} /></InputCont>
-                <InputCont style={{ paddingLeft: "20px" }} height={"40px"} width={"50px"}><FormInput type="number" step="5" min="0" max="55" style={{ fontSize: "20px" }} onChange={(e) => {
-                    setMinute(e.target.value);
-                }} /></InputCont>
-            </div> */}
+            <InputCont>
+                <FormInput type="time" style={{ fontSize: "20px" }} onChange={(e) => {
+                    setTime(e.target.value);
+                    // selected={new Date("Thu Feb 18 2021 20:25:36 GMT-0800")}
+                }}/>
+            </InputCont>
             <div style={{ display: "flex", flexDirection: "row", width: "100%", justifyContent: "space-evenly" }}>
                 <FormButton onClick={() => {
                     onFormClose(handleExpand)
-                }}><p>Cancel</p></FormButton>
+                }}>
+                    <p>Cancel</p>
+                </FormButton>
                 <FormButton buttonColor={"#18A0FB"} onClick={() => {
-                    onFormComplete(mediname, dosage, hr, min, handleExpand)
-                }}><p style={{ color: "white" }}>{buttonText}</p> </FormButton>
+                    onFormComplete(mediname, dosage, time, handleExpand)
+                }}>
+                    <p style={{ color: "white" }}>{buttonText}</p>
+                </FormButton>
             </div>
         </Content>
     </Container>
@@ -166,9 +181,8 @@ const Form = ({ buttonText, onFormComplete, onFormClose, minuteNum }) => {
 Form.defaultProps = {
     buttonText: "default",
     FormType: "default",
-    onFormComplete: () => { },
-    onFormClose: () => { },
-
+    onFormComplete:()=>{},
+    onFormClose:()=>{}
 }
 
 export default Form;
