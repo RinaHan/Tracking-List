@@ -45,14 +45,14 @@ const AlertIcon = styled.div`
 `;
 
 const BtnCont = styled.div`
-  width: 100%;
+  /* width: 100%;
   height: 83px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 `;
 
-const Button = styled.div`
+const AlertButton = styled.button`
   min-height: 50px;
   width: 250px;
   border-radius: 15px;
@@ -63,6 +63,10 @@ const Button = styled.div`
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  &:hover {
+  color: white;
+  background: #4dc2a6;
+  }
 `;
 
 // const Icon = styled.span`
@@ -99,10 +103,10 @@ const Alert = forwardRef((props, ref) => {
           Completed
         </div> */}
         <BtnCont>
-          <Button onClick={hideAlert}>
+          <AlertButton onClick={hideAlert}>
             <MdDone size={20} />
             Completed
-          </Button>
+          </AlertButton>
         </BtnCont>
         <h3>
           Component State: <span>{close.toString()}</span>
