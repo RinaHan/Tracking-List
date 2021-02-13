@@ -78,6 +78,8 @@ const FormButton = styled.button`
     justify-content:center;
     :hover {
         cursor: pointer;
+        background-color:#1874cd;
+        font-weight:bold;
     }
 `;
 const Close = styled.div`
