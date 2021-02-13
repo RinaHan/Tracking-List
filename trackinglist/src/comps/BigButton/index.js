@@ -30,6 +30,8 @@ const BigButton = ({icon, label}) => {
     return<Container>
         <LargeButton><Icon>{icon}</Icon>{label}</LargeButton>
     </Container>
+
+
 }
 
 BigButton.defaultProps = {
