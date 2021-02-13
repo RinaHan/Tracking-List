@@ -33,7 +33,7 @@ const BigButton = ({icon, label}) => {
 }
 
 BigButton.defaultProps = {
-    icon:"MdDone",
+    icon:null,
     label:"Big Button",
 }
 
