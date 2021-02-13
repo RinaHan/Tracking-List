@@ -31,6 +31,7 @@ import styles from "./alert.module.scss";
 //   border-radius: 50%;
 // `;
 
+
 // const BtnCont = styled.div`
 //   width: 100%;
 //   height: 83px;
@@ -51,6 +52,7 @@ import styles from "./alert.module.scss";
 //   justify-content: center;
 //   font-weight: 700;
 // `;
+
 
 // const Icon = styled.span`
 //     margin-left: -20px;
@@ -80,6 +82,7 @@ const Alert = forwardRef((props, ref) => {
   <div className={styles.bottom}>
     <div className={styles.closeBtn} onClick={hideAlert}>
       <h3>Completed</h3>
+
     </div>
   </div>
   </div>
