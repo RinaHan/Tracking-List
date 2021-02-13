@@ -18,7 +18,6 @@ const Container = styled.div`
     margin-top: 30px;
   }
 
-
     background-color:#fff;
     /* position:fixed;
     bottom:0; */
