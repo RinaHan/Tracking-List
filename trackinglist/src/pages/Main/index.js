@@ -11,8 +11,6 @@ import { MdPermDeviceInformation } from "react-icons/md";
 import Countdown from 'comps/Countdown';
 
 
-// const meds = require("../api/medications.json");
-
 const Main = ({}) => {
 
   const ref = useRef(null);
@@ -32,9 +30,7 @@ const Main = ({}) => {
   current_time = parseInt(current_time);
   console.log(medications);
   console.log(current_time);
-  //comment lines 30-34 to use alert modal
 
-  // var current_time = 2359; //comment this out to see filtering
   var upcoming_time = current_time + 100;
 
   //filter only medications that are between the current time and an hour into the future
@@ -44,15 +40,18 @@ const Main = ({}) => {
   //filter only medications that are less than the current time && return alert comp
   const has = medications.filter(o=>parseInt(o.time.replace(":", "")) <= current_time && parseInt(o.time.replace(":", "")) > 0 );
 
-  for(let i = 0; i < medications.length; i++){
-    const medication = medications[i];
-    if(medication.time.replace(":", "") == current_time){
-      console.log("true");
-      handleAlert();
-    }else{
-      console.log("false");
-    }
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      for (let i = 0; i < medications.length; i++) {
+        const medication = medications[i];
+        if (medication.time.replace(":", "") == current_time) {
+          handleAlert();
+        } 
+      }
+    }, 31000);
+    return () => clearInterval(interval);
+  }, [current_time, medications]);
+
 
   //User Interaction (submit form)
   const HandleFormComplete = async (
@@ -95,14 +94,6 @@ const Main = ({}) => {
     setAll(resp.data.medications);
 
   };
-
-  //Dummy data
-  // const GetMedications = async() =>{
-  //   var resp = await axios.get("../api/medications.json");
-  //   var meds = resp.data.slice(0,12)
-  //   setMedications(meds);
-  //   setAll(resp.data);
-  // }
 
   //User interaction (cancel form)
   const handleFormClose = (handleExpand) => {
