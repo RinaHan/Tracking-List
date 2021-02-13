@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { MdAlarm } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";
+
+
+const axios = require('axios')
 
 const Container = styled.div`
   display: flex;
@@ -106,12 +109,20 @@ const ButtonCont = styled.div`
   }
 `;
 
-const MediCard =({mediname, dosage, time, bgcolor, cardcolor, onDeleteMedication}) => {
+const MediCard =({id, mediname, dosage, time, bgcolor, cardcolor}) => {
 
   const medications = [
     {}
   ];
-
+{/*
+  const HandleMedDelete = (id) => {
+    axios.delete("https://medication-list-backend.herokuapp.com/api/medications", { medicineId: id }).then(res => {
+      this.setState({
+        id: this.state.id
+      })
+    })
+  }
+*/}
   return (
     <Container bgcolor={bgcolor}>
       {medications.map(o=><div style={{display:"flex", flexDirection:"row", padding:"15px"}}>
@@ -128,7 +139,8 @@ const MediCard =({mediname, dosage, time, bgcolor, cardcolor, onDeleteMedication
         <MedDetails>
           <Dosage>{dosage}mg</Dosage>
           <ButtonCont onClick={()=>{
-            onDeleteMedication()
+            // HandleMedDelete(id)
+            alert("to be deleted")
           }}>
               <FaTrash size={14} color={"#fff"} />
               Delete
@@ -189,7 +201,6 @@ MediCard.defaultProps = {
   mediname: null,
   dosage: null,
   time: null,
-  onDeleteMedication:()=>{}
 };
 
 export default MediCard;
