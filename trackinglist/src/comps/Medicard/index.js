@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { MdAlarm } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";
+
+
+const axios = require('axios')
 
 const Container = styled.div`
   display: flex;
@@ -106,13 +109,56 @@ const ButtonCont = styled.div`
   }
 `;
 
+const MediCard =({id, mediname, dosage, time, bgcolor, cardcolor}) => {
+
+  const medications = [
+    {}
+  ];
+{/*
+  const HandleMedDelete = (id) => {
+    axios.delete("https://medication-list-backend.herokuapp.com/api/medications", { medicineId: id }).then(res => {
+      this.setState({
+        id: this.state.id
+      })
+    })
+  }
+*/}
+  return (
+    <Container bgcolor={bgcolor}>
+      {medications.map(o=><div style={{display:"flex", flexDirection:"row", padding:"15px"}}>
+      <CardLeft cardcolor={cardcolor}>
+        <Time>
+          <Icon>
+            <MdAlarm size={24}/>
+          </Icon>
+          {time}
+        </Time>
+      </CardLeft>
+      <CardRight>
+        <MediName>{mediname}</MediName>
+        <MedDetails>
+          <Dosage>{dosage}mg</Dosage>
+          <ButtonCont onClick={()=>{
+            // HandleMedDelete(id)
+            alert("to be deleted")
+          }}>
+              <FaTrash size={14} color={"#fff"} />
+              Delete
+          </ButtonCont>
+        </MedDetails>
+      </CardRight>
+      </div>)}
+    </Container>
+  );
+}
+/*
 const MediCard = ({
   mediname,
   dosage,
   time,
   bgcolor,
   cardcolor,
-  onDelete,
+  onDeleteMedication
   btcolor,
   hovercolor
 }) => {
@@ -137,7 +183,7 @@ const MediCard = ({
         <MedDetails>
           <Dosage>{dosage}mg</Dosage>
           <ButtonCont btcolor={btcolor} hovercolor={hovercolor} onClick={()=>
-            onDelete()
+            onDeleteMedication()
           }>
               <FaTrash size={14} color={"#fff"} />
               Delete
@@ -148,14 +194,13 @@ const MediCard = ({
     </Container>
   );
 };
-
+*/
 MediCard.defaultProps = {
   hr: null,
   min: null,
   mediname: null,
   dosage: null,
   time: null,
-  onDelete:()=>{}
 };
 
 export default MediCard;
