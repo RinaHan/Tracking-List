@@ -155,18 +155,23 @@ const Main = ({}) => {
       <div className="content">
         <div className="inform">
           <Inform onClickLatest={handleTime} onClickName={handleName} />
-        </div>
+    
 
-        <div className="inform">
+        
+          <div className="filtercont"></div>
+            <span style={{paddingRight:"20px"}}>Sort by</span>
+            <button style={{marginRight:"20px"}} className="filterBtn" onClick={handleTime}>By Time</button>
+            <button className="filterBtn" onClick={handleName}>By Name</button>
+          </div>
+    
 
           {/* <div className="alert">
             <Alert ref={ref} />
           </div> */}
           {/* Works with these buttons in console... */}
-          <button onClick={handleTime}>By Time</button>
-          <button onClick={handleName}>By Name</button>
+   
 
-        </div>
+        
 
         <div className="mediconts">
           <div className="firstMedicont">
