@@ -93,7 +93,7 @@ const ButtonCont = styled.div`
 
   padding: 10px 18px;
   min-width: 50px;
-  background-color: #191919;
+  background-color: #292929;
   border-radius: 7px;
   display: flex;
   flex-direction: row;
@@ -106,13 +106,47 @@ const ButtonCont = styled.div`
   }
 `;
 
+const MediCard =({mediname, dosage, time, bgcolor, cardcolor, onDeleteMedication}) => {
+
+  const medications = [
+    {}
+  ];
+
+  return (
+    <Container bgcolor={bgcolor}>
+      {medications.map(o=><div style={{display:"flex", flexDirection:"row", padding:"15px"}}>
+      <CardLeft cardcolor={cardcolor}>
+        <Time>
+          <Icon>
+            <MdAlarm size={24}/>
+          </Icon>
+          {time}
+        </Time>
+      </CardLeft>
+      <CardRight>
+        <MediName>{mediname}</MediName>
+        <MedDetails>
+          <Dosage>{dosage}mg</Dosage>
+          <ButtonCont onClick={()=>{
+            onDeleteMedication()
+          }}>
+              <FaTrash size={14} color={"#fff"} />
+              Delete
+          </ButtonCont>
+        </MedDetails>
+      </CardRight>
+      </div>)}
+    </Container>
+  );
+}
+/*
 const MediCard = ({
   mediname,
   dosage,
   time,
   bgcolor,
   cardcolor,
-  onDelete
+  onDeleteMedication
 }) => {
 
   const medications = [
@@ -134,9 +168,9 @@ const MediCard = ({
         <MediName>{mediname}</MediName>
         <MedDetails>
           <Dosage>{dosage}mg</Dosage>
-          <ButtonCont onClick={()=>
-            onDelete()
-          }>
+          <ButtonCont onClick={()=>{
+            onDeleteMedication()
+          }}>
               <FaTrash size={14} color={"#fff"} />
               Delete
           </ButtonCont>
@@ -146,14 +180,14 @@ const MediCard = ({
     </Container>
   );
 };
-
+*/
 MediCard.defaultProps = {
   hr: null,
   min: null,
   mediname: null,
   dosage: null,
   time: null,
-  onDelete:()=>{}
+  onDeleteMedication:()=>{}
 };
 
 export default MediCard;

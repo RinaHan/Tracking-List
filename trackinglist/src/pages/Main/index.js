@@ -73,6 +73,15 @@ const Main = ({}) => {
     handleExpand();
   };
 
+  const HandleMedDelete = async (id) => {
+    alert(id);
+
+    var resp = await axios.delete("https://medication-list-backend.herokuapp.com/api/medications/:id", {id});
+
+    console.log("delete", resp)
+    // setMedications(resp.data.medications)
+  }
+
   //Retrieve medications
   const GetMedications = async () => {
     var resp = await axios.get(
@@ -163,6 +172,7 @@ const Main = ({}) => {
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  onDeleteMedication={HandleMedDelete}
                 />
               );
             })}
@@ -176,6 +186,7 @@ const Main = ({}) => {
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  onDeleteMedication={HandleMedDelete}
                   cardcolor="#F6A860"
                   bgcolor="#FAF2DF"
                 />
@@ -191,6 +202,7 @@ const Main = ({}) => {
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
+                  onDeleteMedication={HandleMedDelete}
                   cardcolor="#6ABDD7"
                   bgcolor="#DFFAED
                   "
