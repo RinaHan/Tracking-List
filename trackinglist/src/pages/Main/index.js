@@ -158,9 +158,10 @@ const Main = ({}) => {
         </div>
 
         <div className="inform">
-          <div className="alert">
+
+          {/* <div className="alert">
             <Alert ref={ref} />
-          </div>
+          </div> */}
           {/* Works with these buttons in console... */}
           <button onClick={handleTime}>By Time</button>
           <button onClick={handleName}>By Name</button>

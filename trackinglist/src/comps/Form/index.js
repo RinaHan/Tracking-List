@@ -12,10 +12,13 @@ const Container = styled.div`
     bottom: 0;
   }
   @media (max-width: 4000px) and (min-width: 768px) {
-    min-width: 400px;
     width: 30%;
-    max-width: 50%;
-    margin-top: 30px;
+    min-width:400px;
+    max-width:40%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 
     background-color:#fff;
