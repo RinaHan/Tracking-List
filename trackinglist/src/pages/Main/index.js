@@ -158,10 +158,13 @@ const Main = ({}) => {
     
 
         
-          <div className="filtercont"></div>
-            <span style={{paddingRight:"20px"}}>Sort by</span>
+          <div className="filtercont">
+            <span style={{padding:"0 20px 0 60px", fontSize:"14px"}}>
+              {/* Sort by */}
+              </span>
             <button style={{marginRight:"20px"}} className="filterBtn" onClick={handleTime}>By Time</button>
             <button className="filterBtn" onClick={handleName}>By Name</button>
+          </div>
           </div>
     
 
