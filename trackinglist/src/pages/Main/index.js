@@ -137,35 +137,27 @@ const Main = ({}) => {
 
   return (
     <div className="main">
-      <Alert ref={ref}/>
       <div className="content">
         <div className="inform">
-          <Inform
-            onClickLatest={handleTime}
-            onClickName={handleName} />
+          <Inform onClickLatest={handleTime} onClickName={handleName} />
         </div>
 
-      <div className="inform">
-        <Inform 
-        // byTime="handleTime"
+        <div className="inform">
+          <div className="alert">
+            <Alert ref={ref} />
+          </div>
+          {/* Works with these buttons in console... */}
+          <button onClick={handleTime}>By Time</button>
+          <button onClick={handleName}>By Name</button>
 
-          // onClickLatest={handleTime}
-          // onClickName={handleName}
-        />
-        
-        {/* Works with these buttons in console... */}
-        <button onClick={handleTime}>By Time</button>
-        <button onClick={handleName}>By Name</button>
-      </div>
+        </div>
 
-      <div className="dashboard">
-
-        <div className="medibox">
-          <div className="medicont">
+        <div className="mediconts">
+          <div className="firstMedicont">
             <h3>Within the Hour</h3>
             {hour.map((o) => {
               return (
-                <MediCard 
+                <MediCard
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
@@ -184,6 +176,8 @@ const Main = ({}) => {
                   dosage={o.dosage}
                   cardcolor="#F6A860"
                   bgcolor="#FAF2DF"
+                  btcolor="#F6A860"
+                  hovercolor="#e0876a"
                 />
               );
             })}
@@ -198,8 +192,9 @@ const Main = ({}) => {
                   mediname={o.mediname}
                   dosage={o.dosage}
                   cardcolor="#6ABDD7"
-                  bgcolor="#DFFAED
-                  "
+                  bgcolor="#DFFAED"
+                  btcolor="#6ABDD7"
+                  hovercolor="#009acd"
                 />
               );
             })}
@@ -214,7 +209,6 @@ const Main = ({}) => {
           />
         </div>
       </div>
-    </div>
     </div>
   );
 };
