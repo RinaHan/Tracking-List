@@ -8,16 +8,14 @@ import MediCard from "comps/Medicard";
 
 import { MdPermDeviceInformation } from "react-icons/md";
 
-import Countdown from 'comps/Countdown';
-
+import Countdown from "comps/Countdown";
 
 // const meds = require("../api/medications.json");
 
 const Main = ({}) => {
-
   const ref = useRef(null);
 
-  const handleAlert =()=>{
+  const handleAlert = () => {
     ref.current.showAlert();
   };
 
@@ -25,9 +23,12 @@ const Main = ({}) => {
   const [medications, setMedications] = useState([]);
   const [allMedications, setAll] = useState([]);
 
- 
   //get current time &&  the time 1 hour into the future
-  var current_time = (new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
+  var current_time = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
   current_time = current_time.replace(":", "");
   current_time = parseInt(current_time);
   console.log(medications);
@@ -38,18 +39,30 @@ const Main = ({}) => {
   var upcoming_time = current_time + 100;
 
   //filter only medications that are between the current time and an hour into the future
-  const hour = medications.filter(o=>parseInt(o.time.replace(":", "")) > current_time && parseInt(o.time.replace(":", "")) <= upcoming_time);
+  const hour = medications.filter(
+    (o) =>
+      parseInt(o.time.replace(":", "")) > current_time &&
+      parseInt(o.time.replace(":", "")) <= upcoming_time
+  );
   //filter only medications that are greater than an hour into the future & before midnight
-  const hasnt = medications.filter(o=>parseInt(o.time.replace(":", "")) > upcoming_time && parseInt(o.time.replace(":", "")) < 2400);
+  const hasnt = medications.filter(
+    (o) =>
+      parseInt(o.time.replace(":", "")) > upcoming_time &&
+      parseInt(o.time.replace(":", "")) < 2400
+  );
   //filter only medications that are less than the current time && return alert comp
-  const has = medications.filter(o=>parseInt(o.time.replace(":", "")) <= current_time && parseInt(o.time.replace(":", "")) > 0 );
+  const has = medications.filter(
+    (o) =>
+      parseInt(o.time.replace(":", "")) <= current_time &&
+      parseInt(o.time.replace(":", "")) > 0
+  );
 
-  for(let i = 0; i < medications.length; i++){
+  for (let i = 0; i < medications.length; i++) {
     const medication = medications[i];
-    if(medication.time.replace(":", "") == current_time){
+    if (medication.time.replace(":", "") == current_time) {
       console.log("true");
       handleAlert();
-    }else{
+    } else {
       console.log("false");
     }
   }
@@ -66,7 +79,10 @@ const Main = ({}) => {
     //var time = hr + min;
     console.log({ mediname, dosage, time });
 
-    var resp = await axios.post("https://medication-list-backend.herokuapp.com/api/medications", {mediname:mediname, dosage:dosage, time:time});
+    var resp = await axios.post(
+      "https://medication-list-backend.herokuapp.com/api/medications",
+      { mediname: mediname, dosage: dosage, time: time }
+    );
 
     console.log("create", resp);
     GetMedications();
@@ -83,7 +99,6 @@ const Main = ({}) => {
     // var arr = resp.data.slice(0,12)
     setMedications(resp.data.medications);
     setAll(resp.data.medications);
-
   };
 
   //Dummy data
@@ -100,36 +115,35 @@ const Main = ({}) => {
   };
 
   // Sorting Functions
-  function handleTime(){
+  function handleTime() {
     setMedications(
-      allMedications.sort((a,b)=>{
-        if(a.time > b.time) {
+      allMedications.sort((a, b) => {
+        if (a.time > b.time) {
           return 1;
-        } else if(a.time < b.time) {
+        } else if (a.time < b.time) {
           return -1;
         } else {
           return 0;
         }
       })
-    )
+    );
   }
 
   function handleName() {
     setMedications(
-      allMedications.sort((a,b)=>{
-        if(a.mediname > b.mediname) {
+      allMedications.sort((a, b) => {
+        if (a.mediname > b.mediname) {
           return 1;
-        } else if(a.mediname < b.mediname) {
+        } else if (a.mediname < b.mediname) {
           return -1;
         } else {
           return 0;
         }
       })
-    )
+    );
   }
 
   console.log(allMedications);
-
 
   //On page load, app gets medications
   useEffect(() => {
@@ -138,28 +152,27 @@ const Main = ({}) => {
 
   return (
     <div className="main">
-      {/* <Alert ref={ref}/> */}
       <div className="content">
         <div className="inform">
-          <Inform
-            onClickLatest={handleTime}
-            onClickName={handleName} />
+          <Inform onClickLatest={handleTime} onClickName={handleName} />
         </div>
 
-      <div className="inform">
-        
-        {/* Works with these buttons in console... */}
-        <button onClick={handleTime}>By Time</button>
-        <button onClick={handleName}>By Name</button>
-      </div>
+        <div className="inform">
+          <div className="alert">
+            <Alert ref={ref} />
+          </div>
+          {/* Works with these buttons in console... */}
+          <button onClick={handleTime}>By Time</button>
+          <button onClick={handleName}>By Name</button>
 
+        </div>
 
         <div className="mediconts">
           <div className="firstMedicont">
             <h3>Within the Hour</h3>
             {hour.map((o) => {
               return (
-                <MediCard 
+                <MediCard
                   time={o.time}
                   mediname={o.mediname}
                   dosage={o.dosage}
@@ -178,6 +191,8 @@ const Main = ({}) => {
                   dosage={o.dosage}
                   cardcolor="#F6A860"
                   bgcolor="#FAF2DF"
+                  btcolor="#F6A860"
+                  hovercolor="#e0876a"
                 />
               );
             })}
@@ -192,8 +207,9 @@ const Main = ({}) => {
                   mediname={o.mediname}
                   dosage={o.dosage}
                   cardcolor="#6ABDD7"
-                  bgcolor="#DFFAED
-                  "
+                  bgcolor="#DFFAED"
+                  btcolor="#6ABDD7"
+                  hovercolor="#009acd"
                 />
               );
             })}
