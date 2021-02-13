@@ -93,7 +93,7 @@ const ButtonCont = styled.div`
 
   padding: 10px 18px;
   min-width: 50px;
-  background-color: #292929;
+  background-color: ${(props) => (props.btcolor ? props.btcolor : "#ce574f")};;
   border-radius: 7px;
   display: flex;
   flex-direction: row;
@@ -101,7 +101,7 @@ const ButtonCont = styled.div`
 
   :hover {
     cursor: pointer;
-    background-color: #ce574f;
+    background-color: ${(props) => (props.hovercolor ? props.hovercolor : "#900")};
     transition: background-color 300ms;
   }
 `;
@@ -147,6 +147,8 @@ const MediCard = ({
   bgcolor,
   cardcolor,
   onDeleteMedication
+  btcolor,
+  hovercolor
 }) => {
 
   const medications = [
@@ -168,9 +170,9 @@ const MediCard = ({
         <MediName>{mediname}</MediName>
         <MedDetails>
           <Dosage>{dosage}mg</Dosage>
-          <ButtonCont onClick={()=>{
+          <ButtonCont btcolor={btcolor} hovercolor={hovercolor} onClick={()=>
             onDeleteMedication()
-          }}>
+          }>
               <FaTrash size={14} color={"#fff"} />
               Delete
           </ButtonCont>
