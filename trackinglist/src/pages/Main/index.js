@@ -162,13 +162,13 @@ const Main = ({}) => {
               </span>
             <button style={{marginRight:"20px"}} className="filterBtn" onClick={handleTime}>By Time</button>
             <button className="filterBtn" onClick={handleName}>By Name</button>
+          {/* <div className="alert">
+            <Alert ref={ref} />
+          </div> */}
           </div>
           </div>
     
 
-          {/* <div className="alert">
-            <Alert ref={ref} />
-          </div> */}
           {/* Works with these buttons in console... */}
    
 
