@@ -109,7 +109,7 @@ const ButtonCont = styled.div`
   }
 `;
 
-const MediCard =({id, mediname, dosage, time, bgcolor, cardcolor}) => {
+const MediCard =({id, mediname, dosage, time, bgcolor, btcolor, cardcolor, hovercolor}) => {
 
   const medications = [
     {}
@@ -138,7 +138,7 @@ const MediCard =({id, mediname, dosage, time, bgcolor, cardcolor}) => {
         <MediName>{mediname}</MediName>
         <MedDetails>
           <Dosage>{dosage}mg</Dosage>
-          <ButtonCont onClick={()=>{
+          <ButtonCont btcolor={btcolor} hovercolor={hovercolor} onClick={()=>{
             // HandleMedDelete(id)
             alert("to be deleted")
           }}>
