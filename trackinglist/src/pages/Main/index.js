@@ -191,6 +191,8 @@ const Main = ({}) => {
                   // onDeleteMedication={HandleMedDelete}
                   cardcolor="#F6A860"
                   bgcolor="#FAF2DF"
+                  btcolor="#F6A860"	               
+                  hovercolor="#e0876a"
                 />
               );
             })}
@@ -206,8 +208,9 @@ const Main = ({}) => {
                   dosage={o.dosage}
                   // onDeleteMedication={HandleMedDelete}
                   cardcolor="#6ABDD7"
-                  bgcolor="#DFFAED
-                  "
+                  bgcolor="#DFFAED"
+                  btcolor="#6ABDD7"	               
+                  hovercolor="#009acd"
                 />
               );
             })}
