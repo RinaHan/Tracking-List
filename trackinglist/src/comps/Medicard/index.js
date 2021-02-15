@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#d2e0e9")};
-  padding: 0 10px 0 10px;
+  /* padding: 0 10px 0 10px; */
   justify-content:center;
   min-width:${props=>props.width ? props.width : "400px"};
   max-width:${props=>props.width ? props.width : "500px"};
