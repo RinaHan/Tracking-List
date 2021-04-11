@@ -1,10 +1,23 @@
-# Tracking-List
+# Tracking-List(React)
 
-Welcome to team "The Post Getters" medication tracking list! This modified version of a simple to do list allows users to input as many medications as they would like to the application, and set a time at which they would like to be reminded to take said medication.
 
-Built with React & MySQL.
+### `Summary`
+Academic project | Feb 2021
+- Front-end Developer: Rina, Ian, Farhaz, Sophia
+- UI Designer: Rina, Sophia
 
---TO RUN--
+### `Demo`
 
-npm i
-npm start
+
+
+### `Pages`
+
+  
+### `Task`
+
+
+  
+### `Tech Stack`
+
+
+
